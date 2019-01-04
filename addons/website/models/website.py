@@ -111,6 +111,11 @@ class Website(models.Model):
         ('b2c', 'Free sign up'),
     ], string='Customer Account', default='b2b')
 
+    @api.onchange('language_ids')
+    def _onchange_language_ids(self):
+        if self.language_ids and self.default_lang_id not in self.language_ids:
+            self.default_lang_id = self.language_ids[0]
+
     @api.multi
     def _compute_menu(self):
         Menu = self.env['website.menu']
@@ -125,6 +130,12 @@ class Website(models.Model):
 
         res = super(Website, self).create(vals)
         res._bootstrap_homepage()
+
+        if not self.env.user.has_group('website.group_multi_website') and self.search_count([]) > 1:
+            all_user_groups = 'base.group_portal,base.group_user,base.group_public'
+            groups = self.env['res.groups'].concat(*(self.env.ref(it) for it in all_user_groups.split(',')))
+            groups.write({'implied_ids': [(4, self.env.ref('website.group_multi_website').id)]})
+
         return res
 
     @api.multi
@@ -163,7 +174,6 @@ class Website(models.Model):
         default_menu = self.env.ref('website.main_menu')
         self.copy_menu_hierarchy(default_menu)
 
-    @api.model
     def copy_menu_hierarchy(self, top_menu):
         def copy_menu(menu, t_menu):
             new_menu = menu.copy({
@@ -270,11 +280,6 @@ class Website(models.Model):
             inc += 1
             key_copy = string + (inc and "-%s" % inc or "")
         return key_copy
-
-    def key_to_view_id(self, view_id):
-        return self.env['ir.ui.view'].search([
-            ('id', '=', view_id), ('type', '=', 'qweb')
-        ] + self.env['website'].website_domain(self._context.get('website_id')))
 
     @api.model
     def page_search_dependencies(self, page_id=False):
@@ -456,12 +461,12 @@ class Website(models.Model):
         country = request.session.geoip.get('country_code') if request and request.session.geoip else False
         country_id = False
         if country:
-            country_id = request.env['res.country'].search([('code', '=', country)], limit=1).id
+            country_id = self.env['res.country'].search([('code', '=', country)], limit=1).id
 
         website_id = self._get_current_website_id(domain_name, country_id, fallback=fallback)
         return self.browse(website_id)
 
-    @tools.cache('domain_name', 'country_id')
+    @tools.cache('domain_name', 'country_id', 'fallback')
     def _get_current_website_id(self, domain_name, country_id, fallback=True):
         # sort on country_group_ids so that we fall back on a generic website (empty country_group_ids)
         websites = self.search([('domain', '=', domain_name)]).sorted('country_group_ids')
@@ -494,6 +499,42 @@ class Website(models.Model):
     @api.model
     def is_public_user(self):
         return request.env.user.id == request.website.user_id.id
+
+    @api.model
+    def viewref(self, view_id, raise_if_not_found=True):
+        ''' Given an xml_id or a view_id, return the corresponding view record.
+            In case of website context, return the most specific one.
+            :param view_id: either a string xml_id or an integer view_id
+            :param raise_if_not_found: should the method raise an error if no view found
+            :return: The view record or empty recordset
+        '''
+        View = self.env['ir.ui.view']
+        view = None
+        if isinstance(view_id, pycompat.string_types):
+            if 'website_id' in self._context:
+                domain = [('key', '=', view_id)] + self.env['website'].website_domain(self._context.get('website_id'))
+                order = 'website_id'
+            else:
+                domain = [('key', '=', view_id)]
+                order = View._order
+            views = View.with_context(active_test=False).search(domain, order=order)
+            if views:
+                view = views.filter_duplicate()
+            else:
+                view = self.env.ref(view_id)
+                # self.env.ref might return something else than an ir.ui.view (eg: a theme.ir.ui.view)
+                if view._name != 'ir.ui.view':
+                    view = None
+        elif isinstance(view_id, pycompat.integer_types):
+            view = View.browse(view_id)
+        else:
+            raise ValueError('Expecting a string or an integer, not a %s.' % (type(view_id)))
+
+        if view:
+            return view
+        if raise_if_not_found:
+            raise ValueError('No record found for unique ID %s. It may have been deleted.' % (view_id))
+        return None
 
     @api.model
     def get_template(self, template):
@@ -638,7 +679,7 @@ class Website(models.Model):
     @api.multi
     def get_website_pages(self, domain=[], order='name', limit=None):
         domain += self.get_current_website().website_domain()
-        pages = request.env['website.page'].search(domain, order='name', limit=limit)
+        pages = self.env['website.page'].search(domain, order='name', limit=limit)
         return pages
 
     @api.multi
@@ -1089,7 +1130,7 @@ class Menu(models.Model):
         if vals.get('url') == '/default-main-menu':
             return super(Menu, self).create(vals)
 
-        if vals.get('website_id'):
+        if 'website_id' in vals:
             return super(Menu, self).create(vals)
         elif self._context.get('website_id'):
             vals['website_id'] = self._context.get('website_id')
@@ -1107,6 +1148,13 @@ class Menu(models.Model):
             if default_menu and vals.get('parent_id') == default_menu.id:
                 res = super(Menu, self).create(vals)
         return res  # Only one record is returned but multiple could have been created
+
+    @api.multi
+    def unlink(self):
+        default_menu = self.env.ref('website.main_menu', raise_if_not_found=False)
+        for menu in self.filtered(lambda m: default_menu and m.parent_id.id == default_menu.id):
+            self.env['website.menu'].search([('url', '=', menu.url), ('id', '!=', menu.id)]).unlink()
+        return super(Menu, self).unlink()
 
     @api.one
     def _compute_visible(self):

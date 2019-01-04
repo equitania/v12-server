@@ -14,7 +14,7 @@ from odoo.osv import expression
 from odoo.tools import groupby
 
 _logger = logging.getLogger(__name__)
-_image_dataurl = re.compile(r'(data:image/[a-z]+?);base64,([a-z0-9+/\n]{3,}=*)\n*([\'"])', re.I)
+_image_dataurl = re.compile(r'(data:image/[a-z]+?);base64,([a-z0-9+/\n]{3,}=*)\n*([\'"])(?: data-filename="([^"]*)")?', re.I)
 
 
 class Message(models.Model):
@@ -342,7 +342,7 @@ class Message(models.Model):
             'id': attachment['id'],
             'filename': attachment['datas_fname'],
             'name': attachment['name'],
-            'mimetype': 'application/octet-stream' if safari and 'video' in attachment['mimetype'] else attachment['mimetype'],
+            'mimetype': 'application/octet-stream' if safari and attachment['mimetype'] and 'video' in attachment['mimetype'] else attachment['mimetype'],
         }) for attachment in attachments_data)
 
         # 3. Tracking values
@@ -390,7 +390,8 @@ class Message(models.Model):
             for notification in message.notification_ids.filtered(filter_notification):
                 customer_email_data.append((partner_tree[notification.res_partner_id.id][0], partner_tree[notification.res_partner_id.id][1], notification.email_status))
 
-            main_attachment = message.model and message.res_id and getattr(self.env[message.model].browse(message.res_id), 'message_main_attachment_id')
+            has_access_to_model = message.model and self.env[message.model].check_access_rights('read', raise_exception=False)
+            main_attachment = has_access_to_model and message.res_id and self.env[message.model].search([('id', '=',message.res_id)]) and getattr(self.env[message.model].browse(message.res_id), 'message_main_attachment_id')
             attachment_ids = []
             for attachment in message.attachment_ids:
                 if attachment.id in attachments_tree:
@@ -419,14 +420,25 @@ class Message(models.Model):
 
     @api.model
     def message_fetch(self, domain, limit=20, moderated_channel_ids=None):
+        """ Get a limited amount of formatted messages with provided domain.
+            :param domain: the domain to filter messages;
+            :param limit: the maximum amount of messages to get;
+            :param list(int) moderated_channel_ids: if set, it contains the ID
+              of a moderated channel. Fetched messages should include pending
+              moderation messages for moderators. If the current user is not
+              moderator, it should still get self-authored messages that are
+              pending moderation;
+            :returns list(dict).
+        """
         messages = self.search(domain, limit=limit)
-        user_mod_channels = self.env.user.moderation_channel_ids.ids
-        if moderated_channel_ids and set(moderated_channel_ids).issubset(user_mod_channels):
+        if moderated_channel_ids:
             # Split load moderated and regular messages, as the ORed domain can
             # cause performance issues on large databases.
-            moderated_messages_dom = [['model', '=', 'mail.channel'],
-                                      ['res_id', 'in', moderated_channel_ids],
-                                      ['need_moderation', '=', True]]
+            moderated_messages_dom = [('model', '=', 'mail.channel'),
+                                      ('res_id', 'in', moderated_channel_ids),
+                                      '|',
+                                      ('author_id', '=', self.env.user.partner_id.id),
+                                      ('need_moderation', '=', True)]
             messages |= self.search(moderated_messages_dom, limit=limit)
             # Truncate the results to `limit`
             messages = messages.sorted(key='id', reverse=True)[:limit]
@@ -939,12 +951,13 @@ class Message(models.Model):
             def base64_to_boundary(match):
                 key = match.group(2)
                 if not data_to_url.get(key):
-                    name = 'image%s' % len(data_to_url)
+                    name = match.group(4) if match.group(4) else 'image%s' % len(data_to_url)
                     attachment = Attachments.create({
                         'name': name,
                         'datas': match.group(2),
                         'datas_fname': name,
-                        'res_model': 'mail.message',
+                        'res_model': values.get('model'),
+                        'res_id': values.get('res_id'),
                     })
                     attachment.generate_access_token()
                     values['attachment_ids'].append((4, attachment.id))
@@ -955,6 +968,10 @@ class Message(models.Model):
         # delegate creation of tracking after the create as sudo to avoid access rights issues
         tracking_values_cmd = values.pop('tracking_value_ids', False)
         message = super(Message, self).create(values)
+
+        if values.get('attachment_ids'):
+            message.attachment_ids.check(mode='read')
+
         if tracking_values_cmd:
             vals_lst = [dict(cmd[2], mail_message_id=message.id) for cmd in tracking_values_cmd if len(cmd) == 3 and cmd[0] == 0]
             other_cmd = [cmd for cmd in tracking_values_cmd if len(cmd) != 3 or cmd[0] != 0]
@@ -980,6 +997,9 @@ class Message(models.Model):
         if 'model' in vals or 'res_id' in vals:
             self._invalidate_documents()
         res = super(Message, self).write(vals)
+        if vals.get('attachment_ids'):
+            for mail in self:
+                mail.attachment_ids.check(mode='read')
         if 'notification_ids' in vals or 'model' in vals or 'res_id' in vals:
             self._invalidate_documents()
         return res

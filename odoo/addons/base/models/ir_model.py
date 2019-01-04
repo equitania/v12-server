@@ -177,12 +177,16 @@ class IrModel(models.Model):
 
     def _drop_table(self):
         for model in self:
-            table = self.env[model.model]._table
-            kind = tools.table_kind(self._cr, table)
-            if kind == 'v':
-                self._cr.execute('DROP VIEW "%s"' % table)
-            elif kind == 'r':
-                self._cr.execute('DROP TABLE "%s" CASCADE' % table)
+            current_model = self.env.get(model.model)
+            if current_model is not None:
+                table = current_model._table
+                kind = tools.table_kind(self._cr, table)
+                if kind == 'v':
+                    self._cr.execute('DROP VIEW "%s"' % table)
+                elif kind == 'r':
+                    self._cr.execute('DROP TABLE "%s" CASCADE' % table)
+            else:
+                _logger.warning('The model %s could not be dropped because it did not exist in the registry.', model.model)
         return True
 
     @api.multi
@@ -552,14 +556,15 @@ class IrModelFields(models.Model):
         for field in self:
             if field.name in models.MAGIC_COLUMNS:
                 continue
-            model = self.env[field.model]
-            if tools.column_exists(self._cr, model._table, field.name) and \
+            model = self.env.get(field.model)
+            is_model = model is not None
+            if is_model and tools.column_exists(self._cr, model._table, field.name) and \
                     tools.table_kind(self._cr, model._table) == 'r':
                 self._cr.execute('ALTER TABLE "%s" DROP COLUMN "%s" CASCADE' % (model._table, field.name))
             if field.state == 'manual' and field.ttype == 'many2many':
-                rel_name = field.relation_table or model._fields[field.name].relation
+                rel_name = field.relation_table or (is_model and model._fields[field.name].relation)
                 tables_to_drop.add(rel_name)
-            if field.state == 'manual':
+            if field.state == 'manual' and is_model:
                 model._pop_field(field.name)
 
         if tables_to_drop:
@@ -581,18 +586,19 @@ class IrModelFields(models.Model):
         """
         failed_dependencies = []
         for rec in self:
-            model = self.env[rec.model]
-            if rec.name in model._fields:
-                field = model._fields[rec.name]
-            else:
-                # field hasn't been loaded (yet?)
-                continue
-            for dependant, path in model._field_triggers.get(field, ()):
-                if dependant.manual:
-                    failed_dependencies.append((field, dependant))
-            for inverse in model._field_inverses.get(field, ()):
-                if inverse.manual and inverse.type == 'one2many':
-                    failed_dependencies.append((field, inverse))
+            model = self.env.get(rec.model)
+            if model is not None:
+                if rec.name in model._fields:
+                    field = model._fields[rec.name]
+                else:
+                    # field hasn't been loaded (yet?)
+                    continue
+                for dependant, path in model._field_triggers.get(field, ()):
+                    if dependant.manual:
+                        failed_dependencies.append((field, dependant))
+                for inverse in model._field_inverses.get(field, ()):
+                    if inverse.manual and inverse.type == 'one2many':
+                        failed_dependencies.append((field, inverse))
 
         if not self._context.get(MODULE_UNINSTALL_FLAG) and failed_dependencies:
             msg = _("The field '%s' cannot be removed because the field '%s' depends on it.")
@@ -712,11 +718,15 @@ class IrModelFields(models.Model):
                 field = getattr(obj, '_fields', {}).get(item.name)
 
                 if vals.get('name', item.name) != item.name:
-                    # We need to rename the column
+                    # We need to rename the field
                     item._prepare_update()
-                    if column_rename:
-                        raise UserError(_('Can only rename one field at a time!'))
-                    column_rename = (obj._table, item.name, vals['name'], item.index)
+                    if item.ttype in ('one2many', 'many2many'):
+                        # those field names are not explicit in the database!
+                        pass
+                    else:
+                        if column_rename:
+                            raise UserError(_('Can only rename one field at a time!'))
+                        column_rename = (obj._table, item.name, vals['name'], item.index)
 
                 # We don't check the 'state', because it might come from the context
                 # (thus be set for multiple fields) and will be ignored anyway.
@@ -779,6 +789,7 @@ class IrModelFields(models.Model):
             'index': bool(field.index),
             'store': bool(field.store),
             'copied': bool(field.copy),
+            'on_delete': getattr(field, 'ondelete', None),
             'related': ".".join(field.related) if field.related else None,
             'readonly': bool(field.readonly),
             'required': bool(field.required),
@@ -1466,17 +1477,20 @@ class IrModelData(models.Model):
 
         # rows to insert
         rowf = "(%s, %s, %s, %s, %s, now() at time zone 'UTC', now() at time zone 'UTC')"
-        rows = set()
+        rows = tools.OrderedSet()
         for data in data_list:
             prefix, suffix = data['xml_id'].split('.', 1)
             record = data['record']
             noupdate = bool(data.get('noupdate'))
-            rows.add((prefix, suffix, record._name, record.id, noupdate))
-            # also create XML ids for parent records
+            # First create XML ids for parent records, then create XML id for
+            # record. The order reflects their actual creation order. This order
+            # is relevant for the uninstallation process: the record must be
+            # deleted before its parent records.
             for parent_model, parent_field in record._inherits.items():
                 parent = record[parent_field]
                 puffix = suffix + '_' + parent_model.replace('.', '_')
                 rows.add((prefix, puffix, parent._name, parent.id, noupdate))
+            rows.add((prefix, suffix, record._name, record.id, noupdate))
 
         for sub_rows in self.env.cr.split_for_in_conditions(rows):
             # insert rows or update them

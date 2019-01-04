@@ -130,6 +130,13 @@ def get_view_arch_from_file(filename, xmlid):
         if node.tag in ('template', 'record'):
             if node.tag == 'record':
                 field = node.find('field[@name="arch"]')
+                if field is None:
+                    if node.find('field[@name="view_id"]') is not None:
+                        view_id = node.find('field[@name="view_id"]').attrib.get('ref')
+                        ref_id = '%s%s' % ('.' not in view_id and xmlid.split('.')[0] + '.' or '', view_id)
+                        return get_view_arch_from_file(filename, ref_id)
+                    else:
+                        return None
                 _fix_multiple_roots(field)
                 inner = u''.join([etree.tostring(child, encoding='unicode') for child in field.iterchildren()])
                 return field.text + inner
@@ -1172,7 +1179,7 @@ actual arch.
             return template
         if '.' not in template:
             raise ValueError('Invalid template id: %r' % template)
-        view = self.search([('key', '=', template)])
+        view = self.search([('key', '=', template)], limit=1)
         return view and view.id or self.env['ir.model.data'].xmlid_to_res_id(template, raise_if_not_found=True)
 
     def clear_cache(self):

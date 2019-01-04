@@ -32,7 +32,6 @@ from odoo.tools.safe_eval import safe_eval
 
 
 _logger = logging.getLogger(__name__)
-BLACKLIST_MAX_BOUNCED_LIMIT = 5
 
 
 class MailThread(models.AbstractModel):
@@ -111,7 +110,7 @@ class MailThread(models.AbstractModel):
         'Number of error', compute='_compute_message_has_error',
         help="Number of messages with delivery error")
     message_attachment_count = fields.Integer('Attachment Count', compute='_compute_message_attachment_count')
-    message_main_attachment_id = fields.Many2one(string="Main Attachment", comodel_name='ir.attachment')
+    message_main_attachment_id = fields.Many2one(string="Main Attachment", comodel_name='ir.attachment', index=True)
 
     @api.one
     @api.depends('message_follower_ids')
@@ -200,6 +199,8 @@ class MailThread(models.AbstractModel):
     @api.multi
     def _get_message_needaction(self):
         res = dict((res_id, 0) for res_id in self.ids)
+        if not res:
+            return
 
         # search for unread messages, directly in SQL to improve performances
         self._cr.execute(""" SELECT msg.res_id FROM mail_message msg
@@ -240,7 +241,7 @@ class MailThread(models.AbstractModel):
 
     @api.multi
     def _compute_message_attachment_count(self):
-        read_group_var = self.env['ir.attachment'].read_group([('res_model', '=', self._name)],
+        read_group_var = self.env['ir.attachment'].read_group([('res_id', 'in', self.ids), ('res_model', '=', self._name)],
                                                               fields=['res_id'],
                                                               groupby=['res_id'])
 
@@ -1172,7 +1173,7 @@ class MailThread(models.AbstractModel):
                     final_recipient_data = tools.decode_message_header(dsn, 'Final-Recipient')
                     partner_address = final_recipient_data.split(';', 1)[1].strip()
                     if partner_address:
-                        partners = partners.sudo().search([('email', 'like', partner_address)])
+                        partners = partners.sudo().search([('email', '=', partner_address)])
                         for partner in partners:
                             partner.message_receive_bounce(partner_address, partner, mail_id=bounced_mail_id)
 
@@ -1471,14 +1472,6 @@ class MailThread(models.AbstractModel):
         Mail Returned to Sender) is received for an existing thread. The default
         behavior is to check is an integer  ``message_bounce`` column exists.
         If it is the case, its content is incremented.
-        In addition, an auto blacklist rule check if the email can be blacklisted
-        to avoid sending mails indefinitely to this email address.
-        This rule checks if the email bounced too much. If this is the case,
-        the email address is added to the blacklist in order to avoid continuing
-        to send mass_mail to that email address. If it bounced too much times
-        in the last month and the bounced are at least separated by one week,
-        to avoid blacklist someone because of a temporary mail server error,
-        then the email is considered as invalid and is blacklisted.
 
         :param mail_id: ID of the sent email that bounced. It may not exist anymore
                         but it could be usefull if the information was kept. This is
@@ -1488,14 +1481,6 @@ class MailThread(models.AbstractModel):
         if 'message_bounce' in self._fields:
             for record in self:
                 record.message_bounce = record.message_bounce + 1
-                three_months_ago = fields.Datetime.to_string(datetime.datetime.now() - datetime.timedelta(weeks=13))
-                stats = self.env['mail.mail.statistics']\
-                    .search(['&', ('bounced', '>', three_months_ago), ('email','=ilike',email)])\
-                    .mapped('bounced')
-                if len(stats) >= BLACKLIST_MAX_BOUNCED_LIMIT:
-                    if max(stats) > min(stats) + datetime.timedelta(weeks=1):
-                        blacklist_rec = self.env['mail.blacklist'].sudo()._add(email)
-                        blacklist_rec._message_log('This email has been automatically blacklisted because of too much bounced.')
 
     def _message_extract_payload_postprocess(self, message, body, attachments):
         """ Perform some cleaning / postprocess in the body and attachments
@@ -1943,7 +1928,7 @@ class MailThread(models.AbstractModel):
     def message_post(self, body='', subject=None,
                      message_type='notification', subtype=None,
                      parent_id=False, attachments=None,
-                     notif_layout=False, add_sign=False, model_description=False,
+                     notif_layout=False, add_sign=True, model_description=False,
                      mail_auto_delete=True, **kwargs):
         """ Post a new message in an existing thread, returning the new
             mail.message ID.
@@ -2356,22 +2341,26 @@ class MailThread(models.AbstractModel):
         """
         if not self or self.env.context.get('mail_auto_subscribe_no_notify'):
             return
+        if not self.env.registry.ready:  # Don't send notification during install
+            return
 
         view = self.env['ir.ui.view'].browse(self.env['ir.model.data'].xmlid_to_res_id(template))
 
         for record in self:
+            model_description = self.env['ir.model']._get(record._name).display_name
             values = {
                 'object': record,
+                'model_description': model_description,
             }
             assignation_msg = view.render(values, engine='ir.qweb', minimal_qcontext=True)
             assignation_msg = self.env['mail.thread']._replace_local_links(assignation_msg)
             record.message_notify(
-                subject='You have been assigned to %s' % record.display_name,
+                subject=_('You have been assigned to %s') % record.display_name,
                 body=assignation_msg,
                 partner_ids=[(4, pid) for pid in partner_ids],
                 record_name=record.display_name,
                 notif_layout='mail.mail_notification_light',
-                model_description=record._description.lower()
+                model_description=model_description,
             )
 
     @api.multi

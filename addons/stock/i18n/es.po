@@ -3,42 +3,46 @@
 # * stock
 # 
 # Translators:
-# Martin Trigaux, 2018
-# Pedro M. Baeza <pedro.baeza@gmail.com>, 2018
-# Christopher Ormaza <chris.ormaza@gmail.com>, 2018
-# Carlos Liébana Anero <carlosliebana@gmail.com>, 2018
 # José Vicente <txusev@gmail.com>, 2018
 # juani_aizean <juani@aizean.com>, 2018
-# Luis M. Ontalba <luis.martinez@tecnativa.com>, 2018
-# Carlos Eduardo Rodriguez Rossi <crodriguez@samemotion.com>, 2018
-# Carlos rodriguez <carlosalbertor436@gmail.com>, 2018
 # Glen Sojo <inactive+glen.sojo@transifex.com>, 2018
-# Miguel Orueta <mo@landoo.es>, 2018
-# David Vidal <david.vidal@trespinos.es>, 2018
-# Nicolás Broggi <rnbroggi@gmail.com>, 2018
-# e2f <projects@e2f.com>, 2018
-# Alejandro Santana <alejandrosantana@anubia.es>, 2018
 # AleEscandon <alejandra.escandon@jarsa.com.mx>, 2018
-# Antonio Trueba, 2018
-# e2f_EPV Translator <e2f_EPV@outlook.com>, 2018
 # Jesús Alan Ramos Rodríguez <alan.ramos@jarsa.com.mx>, 2018
+# Alejandro Santana <alejandrosantana@anubia.es>, 2018
 # Cristóbal Martí Oliver <info@moblesmarti.com>, 2018
 # TRC Servicios srl <ventas.bbca@gmail.com>, 2018
 # Rick Hunter <rick_hunter_ec@yahoo.com>, 2018
+# Carlos Liébana Anero <carlosliebana@gmail.com>, 2018
+# Antonio Trueba, 2018
+# Carlos rodriguez <carlosalbertor436@gmail.com>, 2018
+# e2f_EPV Translator <e2f_EPV@outlook.com>, 2018
+# e2f <projects@e2f.com>, 2018
+# Pedro M. Baeza <pedro.baeza@gmail.com>, 2018
 # Ana Juaristi <ajuaristio@gmail.com>, 2018
+# Luis M. Ontalba <luis.martinez@tecnativa.com>, 2018
 # Luis Pomar <luis.pomar@gmail.com>, 2018
 # RGB Consulting <odoo@rgbconsulting.com>, 2018
+# Christopher Ormaza <chris.ormaza@gmail.com>, 2018
+# Carlos Eduardo Rodriguez Rossi <crodriguez@samemotion.com>, 2018
+# David Vidal <david.vidal@trespinos.es>, 2018
+# Nicolás Broggi <rnbroggi@gmail.com>, 2018
 # Lina Maria Avendaño Carvajal <lina8823@gmail.com>, 2018
-# Miquel Torner <miq@odoo.com>, 2018
 # Cristopher Cravioto <ccr@odoo.com>, 2018
 # Mariela Moreno <mam@odoo.com>, 2018
+# Martin Trigaux, 2018
+# Miguel Orueta <mo@landoo.es>, 2018
+# Rick Hunter <rick.hunter.ec@gmail.com>, 2018
+# Ivan Coro <ivan@iventiva.com>, 2018
+# Miquel Torner <miq@odoo.com>, 2018
+# Nans Lefebvre <len@odoo.com>, 2018
+# 
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server saas~11.5\n"
+"Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-02 10:04+0000\n"
-"PO-Revision-Date: 2018-10-02 10:04+0000\n"
-"Last-Translator: Mariela Moreno <mam@odoo.com>, 2018\n"
+"POT-Creation-Date: 2018-12-19 08:20+0000\n"
+"PO-Revision-Date: 2018-08-24 09:25+0000\n"
+"Last-Translator: Nans Lefebvre <len@odoo.com>, 2018\n"
 "Language-Team: Spanish (https://www.transifex.com/odoo/teams/41243/es/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -372,7 +376,7 @@ msgstr "<strong>Cantidad Total</strong>"
 #. module: stock
 #: model_terms:ir.ui.view,arch_db:stock.stock_package_destination_form_view
 msgid "<strong>Where do you want to send the products ?</strong>"
-msgstr ""
+msgstr "<strong>¿Adónde quiere enviar estos productos?</strong>"
 
 #. module: stock
 #: code:addons/stock/models/stock_inventory.py:123
@@ -454,6 +458,13 @@ msgstr "Añadir una nueva ubicación"
 #: model_terms:ir.actions.act_window,help:stock.action_routes_form
 msgid "Add a new route"
 msgstr "Añadir una nueva ruta"
+
+#. module: stock
+#: model_terms:ir.ui.view,arch_db:stock.view_picking_form
+msgid ""
+"Add an internal note that will be printed on the Picking Operations sheet"
+msgstr ""
+"Añadir una nota interna que se imprimirá en la hoja operaciones de picking"
 
 #. module: stock
 #: model:ir.model.fields,help:stock.field_res_config_settings__group_stock_adv_location
@@ -815,6 +826,12 @@ msgstr ""
 "Si el campo activo se desmarca, permite ocultar la ubicación sin eliminarla."
 
 #. module: stock
+#: model:product.product,name:stock.product_cable_management_box
+#: model:product.template,name:stock.product_cable_management_box_product_template
+msgid "Cable Management Box"
+msgstr ""
+
+#. module: stock
 #: model_terms:ir.ui.view,arch_db:stock.stock_picking_calendar
 msgid "Calendar View"
 msgstr "Vista calendario"
@@ -1094,6 +1111,7 @@ msgstr "Contenido"
 
 #. module: stock
 #: model:ir.model.fields,help:stock.field_product_replenish__product_uom_category_id
+#: model:ir.model.fields,help:stock.field_stock_inventory_line__product_uom_category_id
 msgid ""
 "Conversion between Units of Measure can only occur if they belong to the "
 "same category. The conversion will be made based on the ratios."
@@ -1439,6 +1457,28 @@ msgid "Day(s) to purchase"
 msgstr "Día(s) de compra"
 
 #. module: stock
+#: model:res.company,overdue_msg:stock.res_company_1
+msgid ""
+"Dear Sir/Madam,\n"
+"\n"
+"Our records indicate that some payments on your account are still due. Please find details below.\n"
+"If the amount has already been paid, please disregard this notice. Otherwise, please forward us the total amount stated below.\n"
+"If you have any queries regarding your account, Please contact us.\n"
+"\n"
+"Thank you in advance for your cooperation.\n"
+"Best Regards,"
+msgstr ""
+"Estimado/a Señor/Señora, \n"
+"\n"
+"Nuestros registros indican que tiene pagos pendientes de su cuenta. Encontrará los detalles a continuación. \n"
+"Si ya ha pagado la cantidad, por favor ignore este aviso. \n"
+"De lo contrario, por favor envíe la cantidad total que se indica a continuación. \n"
+"Si tiene cualquier pregunta relacionada con su cuenta, por favor póngase en contacto con nosotros. \n"
+"\n"
+"Gracias de antemano por su colaboración. \n"
+"Atentamente,"
+
+#. module: stock
 #: model:ir.model.fields,field_description:stock.field_stock_picking_type__default_location_dest_id
 msgid "Default Destination Location"
 msgstr "Ubicación destino predeterminada"
@@ -1580,6 +1620,7 @@ msgstr "Entregas"
 
 #. module: stock
 #: code:addons/stock/models/stock_warehouse.py:734
+#: model:stock.picking.type,name:stock.chi_picking_type_out
 #: model:stock.picking.type,name:stock.picking_type_out
 #, python-format
 msgid "Delivery Orders"
@@ -3084,7 +3125,10 @@ msgid "Main Attachment"
 msgstr "Adjuntos principales"
 
 #. module: stock
+#: code:addons/stock/models/stock_warehouse.py:288
+#: code:addons/stock/models/stock_warehouse.py:629
 #: model:stock.location.route,name:stock.route_warehouse0_mto
+#, python-format
 msgid "Make To Order"
 msgstr "Bajo pedido"
 
@@ -3471,6 +3515,11 @@ msgstr "Normal"
 #: selection:stock.move,priority:0 selection:stock.picking,priority:0
 msgid "Not urgent"
 msgstr "No urgente"
+
+#. module: stock
+#: model_terms:ir.ui.view,arch_db:stock.view_picking_form
+msgid "Note"
+msgstr "Nota"
 
 #. module: stock
 #: model:ir.model.fields,field_description:stock.field_stock_move__note
@@ -4613,6 +4662,7 @@ msgstr "Ruta de recepción"
 
 #. module: stock
 #: code:addons/stock/models/stock_warehouse.py:726
+#: model:stock.picking.type,name:stock.chi_picking_type_in
 #: model:stock.picking.type,name:stock.picking_type_in
 #, python-format
 msgid "Receipts"
@@ -5564,7 +5614,7 @@ msgstr "Historia de Stock Quant"
 #: model:ir.model,name:stock.model_stock_rule
 #: model:ir.model.fields,field_description:stock.field_stock_move__rule_id
 msgid "Stock Rule"
-msgstr ""
+msgstr "Regla de Inventario"
 
 #. module: stock
 #: model:ir.actions.act_window,name:stock.action_stock_rules_report
@@ -5615,7 +5665,7 @@ msgstr ""
 #. module: stock
 #: selection:product.template,type:0
 msgid "Storable Product"
-msgstr ""
+msgstr "Almacenable"
 
 #. module: stock
 #: model:ir.model.fields,field_description:stock.field_res_config_settings__group_stock_multi_locations
@@ -6209,7 +6259,7 @@ msgstr ""
 #. module: stock
 #: model_terms:ir.ui.view,arch_db:stock.res_config_settings_view_form
 msgid "Track product location in your warehouse"
-msgstr "Rastrea la ubicación del producto en su almacén"
+msgstr "Permite controlar la ubicación del producto dentro de su almacén"
 
 #. module: stock
 #: code:addons/stock/models/stock_inventory.py:173
@@ -6434,6 +6484,11 @@ msgstr "UdM"
 #: model:ir.ui.menu,name:stock.menu_stock_uom_categ_form_action
 msgid "UoM Categories"
 msgstr "Categorías UdM"
+
+#. module: stock
+#: model:ir.model.fields,field_description:stock.field_stock_inventory_line__product_uom_category_id
+msgid "Uom category"
+msgstr ""
 
 #. module: stock
 #: model_terms:ir.ui.view,arch_db:stock.view_change_product_quantity
@@ -7202,6 +7257,14 @@ msgstr "en"
 #: model_terms:ir.ui.view,arch_db:stock.stock_warn_insufficient_qty_form_view
 msgid "is not available in sufficient quantity"
 msgstr "no está disponible en cantidad suficiente"
+
+#. module: stock
+#: model:product.product,uom_name:stock.product_cable_management_box
+#: model:product.product,weight_uom_name:stock.product_cable_management_box
+#: model:product.template,uom_name:stock.product_cable_management_box_product_template
+#: model:product.template,weight_uom_name:stock.product_cable_management_box_product_template
+msgid "kg"
+msgstr "kg"
 
 #. module: stock
 #: model_terms:ir.ui.view,arch_db:stock.view_warehouse_orderpoint_form

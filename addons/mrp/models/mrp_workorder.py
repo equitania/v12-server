@@ -287,6 +287,9 @@ class MrpWorkorder(models.Model):
             'location_dest_id': by_product_move.location_dest_id.id,
         }
 
+    def _link_to_quality_check(self, old_move_line, new_move_line):
+        return True
+
     @api.multi
     def record_production(self):
         if not self:
@@ -310,8 +313,10 @@ class MrpWorkorder(models.Model):
                 if self.product_id.tracking != 'none':
                     qty_to_add = float_round(self.qty_producing * move.unit_factor, precision_rounding=rounding)
                     move._generate_consumed_move_line(qty_to_add, self.final_lot_id)
-                else:
+                elif len(move._get_move_lines()) < 2:
                     move.quantity_done += float_round(self.qty_producing * move.unit_factor, precision_rounding=rounding)
+                else:
+                    move._set_quantity_done(move.quantity_done + float_round(self.qty_producing * move.unit_factor, precision_rounding=rounding))
 
         # Transfer quantities from temporary to final move lots or make them final
         for move_line in self.active_move_line_ids:
@@ -326,6 +331,7 @@ class MrpWorkorder(models.Model):
             if lots:
                 lots[0].qty_done += move_line.qty_done
                 lots[0].lot_produced_id = self.final_lot_id.id
+                self._link_to_quality_check(move_line, lots[0])
                 move_line.sudo().unlink()
             else:
                 move_line.lot_produced_id = self.final_lot_id.id

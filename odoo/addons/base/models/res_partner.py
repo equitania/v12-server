@@ -21,7 +21,7 @@ from odoo.exceptions import UserError, ValidationError
 from odoo.tools import pycompat
 
 # Global variables used for the warning fields declared on the res.partner
-# in the following modules : sale, purchase, account, stock 
+# in the following modules : sale, purchase, account, stock
 WARNING_MESSAGE = [
                    ('no-message','No Message'),
                    ('warning','Warning'),
@@ -208,7 +208,7 @@ class Partner(models.Model):
         compute='_compute_company_type', inverse='_write_company_type')
     company_id = fields.Many2one('res.company', 'Company', index=True, default=_default_company)
     color = fields.Integer(string='Color Index', default=0)
-    user_ids = fields.One2many('res.users', 'partner_id', string='Users', auto_join=True, context={'active_test': False})
+    user_ids = fields.One2many('res.users', 'partner_id', string='Users', auto_join=True)
     partner_share = fields.Boolean(
         'Share Partner', compute='_compute_partner_share', store=True,
         help="Either customer (not a user), either shared user. Indicated the current partner is a customer without "
@@ -460,7 +460,7 @@ class Partner(models.Model):
             # 1a. Commercial fields: sync if parent changed
             if values.get('parent_id'):
                 self._commercial_sync_from_company()
-            # 1b. Address fields: sync if parent or use_parent changed *and* both are now set 
+            # 1b. Address fields: sync if parent or use_parent changed *and* both are now set
             if self.parent_id and self.type == 'contact':
                 onchange_vals = self.onchange_parent_id().get('value', {})
                 self.update_address(onchange_vals)
@@ -505,7 +505,7 @@ class Partner(models.Model):
     def write(self, vals):
         if vals.get('active') is False:
             for partner in self:
-                if partner.active and any(partner.user_ids.mapped('active')):
+                if partner.active and partner.user_ids:
                     raise ValidationError(_('You cannot archive a contact linked to an internal user.'))
         # res.partner must only allow to set the company_id of a partner if it
         # is the same as the company of all users that inherit from this partner
@@ -618,7 +618,7 @@ class Partner(models.Model):
         if self._context.get('html_format'):
             name = name.replace('\n', '<br/>')
         if self._context.get('show_vat') and partner.vat:
-            name = "%s - %s" % (name, partner.vat)
+            name = "%s ‒ %s" % (name, partner.vat)
         return name
 
     @api.multi
@@ -811,6 +811,10 @@ class Partner(models.Model):
     def _get_default_address_format(self):
         return "%(street)s\n%(street2)s\n%(city)s %(state_code)s %(zip)s\n%(country_name)s"
 
+    @api.model
+    def _get_address_format(self):
+        return self.country_id.address_format or self._get_default_address_format()
+
     @api.multi
     def _display_address(self, without_company=False):
 
@@ -825,8 +829,7 @@ class Partner(models.Model):
         '''
         # get the information that will be injected into the display format
         # get the address format
-        address_format = self.country_id.address_format or \
-            self._get_default_address_format()
+        address_format = self._get_address_format()
         args = {
             'state_code': self.state_id.code or '',
             'state_name': self.state_id.name or '',

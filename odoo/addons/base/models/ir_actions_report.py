@@ -44,6 +44,7 @@ def _get_wkhtmltopdf_bin():
 
 # Check the presence of Wkhtmltopdf and return its version at Odoo start-up
 wkhtmltopdf_state = 'install'
+wkhtmltopdf_dpi_zoom_ratio = False
 try:
     process = subprocess.Popen(
         [_get_wkhtmltopdf_bin(), '--version'], stdout=subprocess.PIPE, stderr=subprocess.PIPE
@@ -61,6 +62,8 @@ else:
             wkhtmltopdf_state = 'upgrade'
         else:
             wkhtmltopdf_state = 'ok'
+        if LooseVersion(version) >= LooseVersion('0.12.2'):
+            wkhtmltopdf_dpi_zoom_ratio = True
 
         if config['workers'] == 1:
             _logger.info('You need to start Odoo with at least two workers to print a pdf version of the reports.')
@@ -246,14 +249,19 @@ class IrActionsReport(models.Model):
             else:
                 command_args.extend(['--margin-top', str(paperformat_id.margin_top)])
 
+            dpi = None
             if specific_paperformat_args and specific_paperformat_args.get('data-report-dpi'):
-                command_args.extend(['--dpi', str(specific_paperformat_args['data-report-dpi'])])
+                dpi = int(specific_paperformat_args['data-report-dpi'])
             elif paperformat_id.dpi:
                 if os.name == 'nt' and int(paperformat_id.dpi) <= 95:
                     _logger.info("Generating PDF on Windows platform require DPI >= 96. Using 96 instead.")
-                    command_args.extend(['--dpi', '96'])
+                    dpi = 96
                 else:
-                    command_args.extend(['--dpi', str(paperformat_id.dpi)])
+                    dpi = paperformat_id.dpi
+            if dpi:
+                command_args.extend(['--dpi', str(dpi)])
+                if wkhtmltopdf_dpi_zoom_ratio:
+                    command_args.extend(['--zoom', str(96.0 / dpi)])
 
             if specific_paperformat_args and specific_paperformat_args.get('data-report-header-spacing'):
                 command_args.extend(['--header-spacing', str(specific_paperformat_args['data-report-header-spacing'])])
@@ -305,7 +313,7 @@ class IrActionsReport(models.Model):
         bodies = []
         res_ids = []
 
-        body_parent = root.xpath('//main')
+        body_parent = root.xpath('//main')[0]
         # Retrieve headers
         for node in root.xpath(match_klass.format('header')):
             body_parent = node.getparent()
@@ -320,7 +328,11 @@ class IrActionsReport(models.Model):
 
         # Retrieve bodies
         for node in root.xpath(match_klass.format('article')):
-            body = layout.render(dict(subst=False, body=lxml.html.tostring(node), base_url=base_url))
+            layout_with_lang = layout
+            # set context language to body language
+            if node.get('data-oe-lang'):
+                layout_with_lang = layout_with_lang.with_context(lang=node.get('data-oe-lang'))
+            body = layout_with_lang.render(dict(subst=False, body=lxml.html.tostring(node), base_url=base_url))
             bodies.append(body)
             if node.get('data-oe-model') == self.model:
                 res_ids.append(int(node.get('data-oe-id', 0)))
@@ -600,7 +612,7 @@ class IrActionsReport(models.Model):
 
         # In case of test environment without enough workers to perform calls to wkhtmltopdf,
         # fallback to render_html.
-        if tools.config['test_enable']:
+        if (tools.config['test_enable'] or tools.config['test_file']) and not self.env.context.get('force_report_rendering'):
             return self.render_qweb_html(res_ids, data=data)
 
         # As the assets are generated during the same transaction as the rendering of the

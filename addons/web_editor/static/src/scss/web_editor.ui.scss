@@ -904,7 +904,7 @@ table.colorpicker {
             clear: both;
         }
 
-        > button {
+        button {
             float: left;
             height: 25px;
             width: 25px;
@@ -987,6 +987,9 @@ body.editor_enable {
         #oe_snippets {
             left: 0;
         }
+    }
+    .btn {
+        -webkit-user-select: none;
     }
 }
 
@@ -1236,6 +1239,7 @@ body.editor_enable {
         height: 70%; // in case flex is not supported
         flex: 1 1 auto;
         .ace_gutter {
+            display: block!important; // display even with aria-hidden
             cursor: ew-resize;
 
             .ace_gutter-cell.o_error {

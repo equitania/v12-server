@@ -5,7 +5,6 @@ odoo.define('web.KanbanRecord', function (require) {
  * This file defines the KanbanRecord widget, which corresponds to a card in
  * a Kanban view.
  */
-
 var config = require('web.config');
 var core = require('web.core');
 var Domain = require('web.Domain');
@@ -210,6 +209,11 @@ var KanbanRecord = Widget.extend({
      * @private
      */
     _openRecord: function () {
+        if (this.$el.hasClass('o_currently_dragged')) {
+            // this record is currently being dragged and dropped, so we do not
+            // want to open it.
+            return;
+        }
         var editMode = this.$el.hasClass('oe_kanban_global_click_edit');
         this.trigger_up('open_record', {
             id: this.db_id,
@@ -509,10 +513,12 @@ var KanbanRecord = Widget.extend({
                 ischild = false;
             }
             var test_event = events && events.click && (events.click.length > 1 || events.click[0].namespace !== 'bs.tooltip');
+            var testLinkWithHref = elem.nodeName.toLowerCase() === 'a' && elem.href;
             if (ischild) {
                 children.push(elem);
-                if (test_event) {
-                    // do not trigger global click if one child has a click event registered
+                if (test_event || testLinkWithHref) {
+                    // Do not trigger global click if one child has a click
+                    // event registered (or it is a link with href)
                     trigger = false;
                 }
             }

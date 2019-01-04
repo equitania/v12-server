@@ -439,7 +439,7 @@ class AssetsBundle(object):
                 assets = [asset for asset in self.stylesheets if isinstance(asset, atype)]
                 if assets:
                     source = '\n'.join([asset.get_source() for asset in assets])
-                    compiled = self.compile_css(assets[0].compile, source)
+                    compiled += self.compile_css(assets[0].compile, source)
 
             # We want to run rtlcss on normal css, so merge it in compiled
             if self.user_direction == 'rtl':
@@ -525,6 +525,11 @@ class AssetsBundle(object):
 
     def run_rtlcss(self, source):
         rtlcss = 'rtlcss'
+        if os.name == 'nt':
+            try:
+                rtlcss = misc.find_in_path('rtlcss.cmd')
+            except IOError:
+                rtlcss = 'rtlcss'
         cmd = [rtlcss, '-']
 
 
