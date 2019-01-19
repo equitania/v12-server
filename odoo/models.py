@@ -2766,17 +2766,21 @@ class BaseModel(MetaModel('DummyModel', (object,), {'_register': False})):
 
         # retrieve results from records; this takes values from the cache and
         # computes remaining fields
-        result = []
-        name_fields = [(name, self._fields[name]) for name in (stored + inherited + computed)]
+        self = self.with_prefetch(self._prefetch.copy())
+        data = {record: {'id': record.id} for record in self}
+        missing = set()
         use_name_get = (load == '_classic_read')
-        for record in self:
-            try:
-                values = {'id': record.id}
-                for name, field in name_fields:
-                    values[name] = field.convert_to_read(record[name], record, use_name_get)
-                result.append(values)
-            except MissingError:
-                pass
+        for name in (stored + inherited + computed):
+            convert = self._fields[name].convert_to_read
+            # restrict the prefetching of self's model to self; this avoids
+            # computing fields on a larger recordset than self
+            self._prefetch[self._name] = set(self._ids)
+            for record in self:
+                try:
+                    data[record][name] = convert(record[name], record, use_name_get)
+                except MissingError:
+                    missing.add(record)
+        result = [data[record] for record in self if record not in missing]
 
         return result
 
@@ -3724,6 +3728,12 @@ class BaseModel(MetaModel('DummyModel', (object,), {'_register': False})):
         modified_ids = {row[0] for row in cr.fetchall()}
         self.browse(modified_ids).modified(['parent_path'])
 
+    def _load_records_write(self, values):
+        self.write(values)
+
+    def _load_records_create(self, values):
+        return self.create(values)
+
     def _load_records(self, data_list, update=False):
         """ Create or update records of this model, and assign XMLIDs.
 
@@ -3781,7 +3791,7 @@ class BaseModel(MetaModel('DummyModel', (object,), {'_register': False})):
 
         # update existing records
         for data in to_update:
-            data['record'].write(data['values'])
+            data['record']._load_records_write(data['values'])
 
         # determine existing parents for new records
         for parent_model, parent_field in self._inherits.items():
@@ -3808,7 +3818,7 @@ class BaseModel(MetaModel('DummyModel', (object,), {'_register': False})):
                     _logger.warning("Creating record %s in module %s.", data['xml_id'], module)
 
         # create records
-        records = self.create([data['values'] for data in to_create])
+        records = self._load_records_create([data['values'] for data in to_create])
         for data, record in pycompat.izip(to_create, records):
             data['record'] = record
 

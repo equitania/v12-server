@@ -31,88 +31,88 @@ WEB_TRANSLATION_COMMENT = "openerp-web"
 SKIPPED_ELEMENTS = ('script', 'style', 'title')
 
 _LOCALE2WIN32 = {
-    'af_ZA': 'Afrikaans_South Africa',
-    'sq_AL': 'Albanian_Albania',
-    'ar_SA': 'Arabic_Saudi Arabia',
-    'eu_ES': 'Basque_Spain',
-    'be_BY': 'Belarusian_Belarus',
-    'bs_BA': 'Bosnian_Bosnia and Herzegovina',
-    'bg_BG': 'Bulgarian_Bulgaria',
-    'ca_ES': 'Catalan_Spain',
-    'hr_HR': 'Croatian_Croatia',
-    'zh_CN': 'Chinese_China',
-    'zh_TW': 'Chinese_Taiwan',
-    'cs_CZ': 'Czech_Czech Republic',
-    'da_DK': 'Danish_Denmark',
-    'nl_NL': 'Dutch_Netherlands',
-    'et_EE': 'Estonian_Estonia',
-    'fa_IR': 'Farsi_Iran',
-    'ph_PH': 'Filipino_Philippines',
-    'fi_FI': 'Finnish_Finland',
+#    'af_ZA': 'Afrikaans_South Africa',
+#    'sq_AL': 'Albanian_Albania',
+#    'ar_SA': 'Arabic_Saudi Arabia',
+#    'eu_ES': 'Basque_Spain',
+#    'be_BY': 'Belarusian_Belarus',
+#    'bs_BA': 'Bosnian_Bosnia and Herzegovina',
+#    'bg_BG': 'Bulgarian_Bulgaria',
+#    'ca_ES': 'Catalan_Spain',
+#    'hr_HR': 'Croatian_Croatia',
+#    'zh_CN': 'Chinese_China',
+#    'zh_TW': 'Chinese_Taiwan',
+#    'cs_CZ': 'Czech_Czech Republic',
+#    'da_DK': 'Danish_Denmark',
+#    'nl_NL': 'Dutch_Netherlands',
+#    'et_EE': 'Estonian_Estonia',
+#    'fa_IR': 'Farsi_Iran',
+#    'ph_PH': 'Filipino_Philippines',
+#    'fi_FI': 'Finnish_Finland',
     'fr_FR': 'French_France',
-    'fr_BE': 'French_France',
+#    'fr_BE': 'French_France',
     'fr_CH': 'French_France',
-    'fr_CA': 'French_France',
-    'ga': 'Scottish Gaelic',
-    'gl_ES': 'Galician_Spain',
-    'ka_GE': 'Georgian_Georgia',
+#    'fr_CA': 'French_France',
+#    'ga': 'Scottish Gaelic',
+#    'gl_ES': 'Galician_Spain',
+#    'ka_GE': 'Georgian_Georgia',
     'de_DE': 'German_Germany',
-    'el_GR': 'Greek_Greece',
-    'gu': 'Gujarati_India',
-    'he_IL': 'Hebrew_Israel',
-    'hi_IN': 'Hindi',
-    'hu': 'Hungarian_Hungary',
-    'is_IS': 'Icelandic_Iceland',
-    'id_ID': 'Indonesian_Indonesia',
+#    'el_GR': 'Greek_Greece',
+#    'gu': 'Gujarati_India',
+#    'he_IL': 'Hebrew_Israel',
+#    'hi_IN': 'Hindi',
+#    'hu': 'Hungarian_Hungary',
+#    'is_IS': 'Icelandic_Iceland',
+#    'id_ID': 'Indonesian_Indonesia',
     'it_IT': 'Italian_Italy',
-    'ja_JP': 'Japanese_Japan',
-    'kn_IN': 'Kannada',
-    'km_KH': 'Khmer',
-    'ko_KR': 'Korean_Korea',
-    'lo_LA': 'Lao_Laos',
-    'lt_LT': 'Lithuanian_Lithuania',
-    'lat': 'Latvian_Latvia',
-    'ml_IN': 'Malayalam_India',
-    'mi_NZ': 'Maori',
-    'mn': 'Cyrillic_Mongolian',
-    'no_NO': 'Norwegian_Norway',
-    'nn_NO': 'Norwegian-Nynorsk_Norway',
-    'pl': 'Polish_Poland',
-    'pt_PT': 'Portuguese_Portugal',
-    'pt_BR': 'Portuguese_Brazil',
-    'ro_RO': 'Romanian_Romania',
-    'ru_RU': 'Russian_Russia',
-    'sr_CS': 'Serbian (Cyrillic)_Serbia and Montenegro',
-    'sk_SK': 'Slovak_Slovakia',
-    'sl_SI': 'Slovenian_Slovenia',
+#    'ja_JP': 'Japanese_Japan',
+#    'kn_IN': 'Kannada',
+#    'km_KH': 'Khmer',
+#    'ko_KR': 'Korean_Korea',
+#    'lo_LA': 'Lao_Laos',
+#    'lt_LT': 'Lithuanian_Lithuania',
+#    'lat': 'Latvian_Latvia',
+#    'ml_IN': 'Malayalam_India',
+#    'mi_NZ': 'Maori',
+#    'mn': 'Cyrillic_Mongolian',
+#    'no_NO': 'Norwegian_Norway',
+#    'nn_NO': 'Norwegian-Nynorsk_Norway',
+#    'pl': 'Polish_Poland',
+#    'pt_PT': 'Portuguese_Portugal',
+#    'pt_BR': 'Portuguese_Brazil',
+#    'ro_RO': 'Romanian_Romania',
+#    'ru_RU': 'Russian_Russia',
+#    'sr_CS': 'Serbian (Cyrillic)_Serbia and Montenegro',
+#    'sk_SK': 'Slovak_Slovakia',
+#    'sl_SI': 'Slovenian_Slovenia',
     #should find more specific locales for Spanish countries,
     #but better than nothing
-    'es_AR': 'Spanish_Spain',
-    'es_BO': 'Spanish_Spain',
-    'es_CL': 'Spanish_Spain',
-    'es_CO': 'Spanish_Spain',
-    'es_CR': 'Spanish_Spain',
-    'es_DO': 'Spanish_Spain',
-    'es_EC': 'Spanish_Spain',
+#    'es_AR': 'Spanish_Spain',
+#    'es_BO': 'Spanish_Spain',
+#    'es_CL': 'Spanish_Spain',
+#    'es_CO': 'Spanish_Spain',
+#    'es_CR': 'Spanish_Spain',
+#    'es_DO': 'Spanish_Spain',
+#    'es_EC': 'Spanish_Spain',
     'es_ES': 'Spanish_Spain',
-    'es_GT': 'Spanish_Spain',
-    'es_HN': 'Spanish_Spain',
-    'es_MX': 'Spanish_Spain',
-    'es_NI': 'Spanish_Spain',
-    'es_PA': 'Spanish_Spain',
-    'es_PE': 'Spanish_Spain',
-    'es_PR': 'Spanish_Spain',
-    'es_PY': 'Spanish_Spain',
-    'es_SV': 'Spanish_Spain',
-    'es_UY': 'Spanish_Spain',
-    'es_VE': 'Spanish_Spain',
-    'sv_SE': 'Swedish_Sweden',
-    'ta_IN': 'English_Australia',
-    'th_TH': 'Thai_Thailand',
-    'tr_TR': 'Turkish_Turkey',
-    'uk_UA': 'Ukrainian_Ukraine',
-    'vi_VN': 'Vietnamese_Viet Nam',
-    'tlh_TLH': 'Klingon',
+#    'es_GT': 'Spanish_Spain',
+#    'es_HN': 'Spanish_Spain',
+#    'es_MX': 'Spanish_Spain',
+#    'es_NI': 'Spanish_Spain',
+#    'es_PA': 'Spanish_Spain',
+#    'es_PE': 'Spanish_Spain',
+#    'es_PR': 'Spanish_Spain',
+#    'es_PY': 'Spanish_Spain',
+#    'es_SV': 'Spanish_Spain',
+#    'es_UY': 'Spanish_Spain',
+#    'es_VE': 'Spanish_Spain',
+#    'sv_SE': 'Swedish_Sweden',
+#    'ta_IN': 'English_Australia',
+#    'th_TH': 'Thai_Thailand',
+#    'tr_TR': 'Turkish_Turkey',
+#    'uk_UA': 'Ukrainian_Ukraine',
+#    'vi_VN': 'Vietnamese_Viet Nam',
+#    'tlh_TLH': 'Klingon',
 
 }
 
@@ -163,7 +163,7 @@ def translate_xml_node(node, callback, parse, serialize):
     """
 
     def nonspace(text):
-        return bool(text) and not text.isspace()
+        return bool(text) and len(re.sub(r'\W+', '', text)) > 1
 
     def concat(text1, text2):
         return text2 if text1 is None else text1 + (text2 or "")
@@ -255,7 +255,10 @@ def translate_xml_node(node, callback, parse, serialize):
             # complete result and return it
             append_content(result, todo)
             result.tail = node.tail
-            has_text = todo_has_text or nonspace(result.text) or nonspace(result.tail)
+            has_text = (
+                todo_has_text or nonspace(result.text) or nonspace(result.tail)
+                or any(name in TRANSLATED_ATTRS for name in result.attrib)
+            )
             return (has_text, result)
 
         # translate the content of todo and append it to result
@@ -815,14 +818,6 @@ def trans_generate(lang, modules, cr):
         # empty and one-letter terms are ignored, they probably are not meant to be
         # translated, and would be very hard to translate anyway.
         sanitized_term = (source or '').strip()
-        try:
-            # verify the minimal size without eventual xml tags
-            # wrap to make sure html content like '<a>b</a><c>d</c>' is accepted by lxml
-            wrapped = u"<div>%s</div>" % sanitized_term
-            node = etree.fromstring(wrapped)
-            sanitized_term = etree.tostring(node, encoding='unicode', method='text')
-        except etree.ParseError:
-            pass
         # remove non-alphanumeric chars
         sanitized_term = re.sub(r'\W+', '', sanitized_term)
         if not sanitized_term or len(sanitized_term) <= 1:
@@ -1103,8 +1098,8 @@ def trans_load_data(cr, fileobj, fileformat, lang, lang_name=None, verbose=True,
             dic['lang'] = lang
             dic.update(pycompat.izip(fields, row))
 
-            # ignore empty value that may be set from base language
-            if not dic['value']:
+            # do not import empty values
+            if not env.context.get('create_empty_translation', False) and not dic['value']:
                 return
 
             if use_pot_reference:
