@@ -467,6 +467,7 @@ var BasicModel = AbstractModel.extend({
         var isNew = this.isNew(id);
         var rollback = 'rollback' in options ? options.rollback : isNew;
         var initialOffset = element.offset;
+        element._domains = {};
         this._visitChildren(element, function (elem) {
             if (rollback && elem._savePoint) {
                 if (elem._savePoint instanceof Array) {
@@ -1862,7 +1863,7 @@ var BasicModel = AbstractModel.extend({
                         model: list.model,
                         method: 'read',
                         args: [_.pluck(data, 'id'), fieldNames],
-                        context: record.context,
+                        context: _.extend({}, record.context, field.context),
                     }).then(function (records) {
                         _.each(records, function (record) {
                             list_records[record.id].data = record;
@@ -2724,7 +2725,7 @@ var BasicModel = AbstractModel.extend({
                 var ids = record.data[fieldName] || [];
                 var list = self._makeDataPoint({
                     count: ids.length,
-                    context: record.context,
+                    context: _.extend({}, record.context, field.context),
                     fieldsInfo: fieldsInfo,
                     fields: view ? view.fields : fieldInfo.relatedFields,
                     limit: fieldInfo.limit,
