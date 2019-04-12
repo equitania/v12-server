@@ -11,8 +11,8 @@
         <input type="hidden" name="amount" t-att-value="amount"/>
         <input type="hidden" name="currency" t-att-value="currency.name"/>
     </template>
-
-    <record id="payment_acquirer_buckaroo" model="payment.acquirer">
+<!--Equitania 12.4.2019 -->
+   <!-- <record id="payment_acquirer_buckaroo" model="payment.acquirer">
         <field name="name">Buckaroo</field>
         <field name="image" type="base64" file="payment_buckaroo/static/src/img/buckaroo_icon.png"/>
         <field name="view_template_id" ref="default_acquirer_button"/>
@@ -26,13 +26,13 @@
                 <li class="list-inline-item"><i class="fa fa-check"/>Payment Status Tracking</li>
             </ul>
         </field>
-        <!-- https://www.buckaroo-payments.com/products/payment-methods/ -->
+        &lt;!&ndash; https://www.buckaroo-payments.com/products/payment-methods/ &ndash;&gt;
         <field name="payment_icon_ids" eval='[(6, 0, [ref("payment.payment_icon_cc_bancontact"),
                                                         ref("payment.payment_icon_cc_maestro"),
                                                         ref("payment.payment_icon_cc_mastercard"),
                                                         ref("payment.payment_icon_cc_visa"),
                                                         ref("payment.payment_icon_cc_american_express")])]'/>
-    </record>
+    </record>-->
 
     <record id="payment_acquirer_ogone" model="payment.acquirer">
         <field name="name">Ingenico</field>
@@ -57,8 +57,8 @@
                                                         ref("payment.payment_icon_cc_mastercard"),
                                                         ref("payment.payment_icon_cc_visa")])]'/>
     </record>
-
-    <record id="payment_acquirer_adyen" model="payment.acquirer">
+<!--Equitania 12.4.2019 -->
+    <!--<record id="payment_acquirer_adyen" model="payment.acquirer">
         <field name="name">Adyen</field>
         <field name="view_template_id" ref="default_acquirer_button"/>
         <field name="image" type="base64" file="payment_adyen/static/src/img/adyen_icon.png"/>
@@ -72,7 +72,7 @@
                 <li class="list-inline-item"><i class="fa fa-check"/>Payment Status Tracking</li>
             </ul>
         </field>
-        <!-- https://www.adyen.com/payment-methods -->
+        &lt;!&ndash; https://www.adyen.com/payment-methods &ndash;&gt;
         <field name="payment_icon_ids" eval='[(6, 0, [ref("payment.payment_icon_cc_bancontact"),
                                                         ref("payment.payment_icon_cc_maestro"),
                                                         ref("payment.payment_icon_cc_mastercard"),
@@ -81,7 +81,7 @@
                                                         ref("payment.payment_icon_cc_diners_club_intl"),
                                                         ref("payment.payment_icon_cc_jcb"),
                                                         ref("payment.payment_icon_cc_unionpay")])]'/>
-    </record>
+    </record>-->
 
     <record id="payment_acquirer_authorize" model="payment.acquirer">
         <field name="name">Authorize.net</field>
@@ -219,8 +219,8 @@
             </ul>
         </field>
     </record>
-
-    <record id="payment_acquirer_payu" model="payment.acquirer">
+<!--Equitania 12.4.2019 -->
+   <!-- <record id="payment_acquirer_payu" model="payment.acquirer">
         <field name="name">PayUmoney</field>
         <field name="image" type="base64" file="payment_payumoney/static/src/img/payumoney_icon.png"/>
         <field name="view_template_id" ref="default_acquirer_button"/>
@@ -234,13 +234,13 @@
                 <li class="list-inline-item"><i class="fa fa-check"/>Payment Status Tracking</li>
             </ul>
         </field>
-        <!-- https://www.payumoney.com/selfcare.html?userType=seller
+        &lt;!&ndash; https://www.payumoney.com/selfcare.html?userType=seller
             > Banks & Cards > What options do you have in the Credit Card payment?
-         -->
+         &ndash;&gt;
         <field name="payment_icon_ids" eval='[(6, 0, [ref("payment.payment_icon_cc_maestro"),
                                                         ref("payment.payment_icon_cc_mastercard"),
                                                         ref("payment.payment_icon_cc_american_express"),
                                                         ref("payment.payment_icon_cc_visa")])]'/>
     </record>
-
+-->
 </odoo>
