@@ -139,7 +139,7 @@ var Chatter = Widget.extend({
         if (this.fields.activity) {
             this.fields.activity.$el.detach();
         }
-        if (this.fields.thread) {
+        if (this.fields.thread && this.fields.thread.$el ) {
             this.fields.thread.$el.detach();
         }
 
@@ -398,7 +398,7 @@ var Chatter = Widget.extend({
                     self.fields.followers.$el.insertBefore(self.$('.o_chatter_button_attachment'));
                 }
             }
-            if (self.fields.thread) {
+            if (self.fields.thread && self.fields.thread.$el) {
                 self.fields.thread.$el.appendTo(self.$el);
             }
         }).always(function () {
@@ -435,7 +435,11 @@ var Chatter = Widget.extend({
      */
      _updateAttachmentCounter: function () {
         var count = this.record.data.message_attachment_count || 0;
-        this.$('.o_chatter_attachment_button_count').html(count);
+        var $element = this.$('.o_chatter_attachment_button_count');
+        if (Number($element.html()) !== count) {
+            this._areAttachmentsLoaded = false;
+            $element.html(count);
+        }
      },
     /**
      * @private
