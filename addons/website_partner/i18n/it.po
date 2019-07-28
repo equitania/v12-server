@@ -4,16 +4,17 @@
 # 
 # Translators:
 # Martin Trigaux, 2018
-# Simone Bernini <simone@aperturelabs.it>, 2018
 # ginfriz <ginfriz84@hotmail.it>, 2018
 # Paolo Valier, 2018
+# Sergio Zanchetta <primes2h@gmail.com>, 2018
 # Léonie Bouchat <lbo@odoo.com>, 2018
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server saas~11.5\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2018-09-18 09:49+0000\n"
-"PO-Revision-Date: 2018-09-18 09:49+0000\n"
+"PO-Revision-Date: 2018-08-24 09:35+0000\n"
 "Last-Translator: Léonie Bouchat <lbo@odoo.com>, 2018\n"
 "Language-Team: Italian (https://www.transifex.com/odoo/teams/41243/it/)\n"
 "MIME-Version: 1.0\n"
@@ -37,7 +38,7 @@ msgstr "È pubblicato"
 #: model:ir.model.fields,field_description:website_partner.field_res_partner__is_seo_optimized
 #: model:ir.model.fields,field_description:website_partner.field_res_users__is_seo_optimized
 msgid "SEO optimized"
-msgstr ""
+msgstr "SEO ottimizzato"
 
 #. module: website_partner
 #: model_terms:ir.ui.view,arch_db:website_partner.partner_detail
@@ -48,13 +49,13 @@ msgstr "Descrizione breve per la visualizzazione come lista"
 #: model:ir.model.fields,help:website_partner.field_res_partner__website_url
 #: model:ir.model.fields,help:website_partner.field_res_users__website_url
 msgid "The full URL to access the document through the website."
-msgstr "URL per accedere al documento attraverso il Sito Web "
+msgstr "URL completo per accedere al documento dal sito web "
 
 #. module: website_partner
 #: model:ir.model.fields,field_description:website_partner.field_res_partner__website_published
 #: model:ir.model.fields,field_description:website_partner.field_res_users__website_published
 msgid "Visible on current website"
-msgstr "Visibile sul sito Web attuale"
+msgstr "Visibile nel sito web corrente"
 
 #. module: website_partner
 #: model:ir.model.fields,field_description:website_partner.field_res_partner__website_description
@@ -90,10 +91,10 @@ msgstr "Meta parole chiave del sito"
 #: model:ir.model.fields,field_description:website_partner.field_res_partner__website_meta_title
 #: model:ir.model.fields,field_description:website_partner.field_res_users__website_meta_title
 msgid "Website meta title"
-msgstr "Meta titolo Sito web"
+msgstr "Meta titolo sito web"
 
 #. module: website_partner
 #: model:ir.model.fields,field_description:website_partner.field_res_partner__website_meta_og_img
 #: model:ir.model.fields,field_description:website_partner.field_res_users__website_meta_og_img
 msgid "Website opengraph image"
-msgstr ""
+msgstr "Immagine OpenGraph"

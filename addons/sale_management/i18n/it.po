@@ -3,21 +3,24 @@
 # * sale_management
 # 
 # Translators:
-# Sergio Zanchetta <primes2h@gmail.com>, 2018
-# Martin Trigaux, 2018
 # Simone Bernini <simone@aperturelabs.it>, 2018
-# Paolo Valier, 2018
 # Cécile Collart <cco@odoo.com>, 2018
 # efraimbiffi <eab@odoo.com>, 2018
 # Paolo Caruccio <paolo.caruccio66@gmail.com>, 2018
+# Martin Trigaux, 2018
+# Paolo Valier, 2018
 # Léonie Bouchat <lbo@odoo.com>, 2018
+# Lorenzo Battistini <lorenzo.battistini@agilebg.com>, 2019
+# Mario Riva <mario.riva@gmail.com>, 2019
+# Sergio Zanchetta <primes2h@gmail.com>, 2019
+# 
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 12.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-10-08 06:48+0000\n"
-"PO-Revision-Date: 2018-10-08 06:48+0000\n"
-"Last-Translator: Léonie Bouchat <lbo@odoo.com>, 2018\n"
+"POT-Creation-Date: 2019-01-09 10:31+0000\n"
+"PO-Revision-Date: 2018-08-24 09:24+0000\n"
+"Last-Translator: Sergio Zanchetta <primes2h@gmail.com>, 2019\n"
 "Language-Team: Italian (https://www.transifex.com/odoo/teams/41243/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -35,17 +38,6 @@ msgstr "% sconto"
 #: model:sale.order.template.line,name:sale_management.sale_order_template_line_1
 msgid "4 Person Desk"
 msgstr "Scrivania per 4 persone"
-
-#. module: sale_management
-#: model_terms:ir.ui.view,arch_db:sale_management.res_config_settings_view_form
-msgid ""
-"<em attrs=\"{'invisible': "
-"[('module_sale_quotation_builder','=',False)]}\">Warning: this option will "
-"install the Website app.</em>"
-msgstr ""
-"<em attrs=\"{'invisible': "
-"[('module_sale_quotation_builder','=',False)]}\">Avvertenza: questa opzione "
-"installerà l'applicazione Sito Web.</em>"
 
 #. module: sale_management
 #: model_terms:ir.ui.view,arch_db:sale_management.sale_order_portal_content_inherit_sale_management
@@ -141,7 +133,7 @@ msgstr "Crea offerte standardizzate con prodotti predefiniti"
 #. module: sale_management
 #: model_terms:ir.actions.act_window,help:sale_management.sale_order_template_action
 msgid "Create your quotation template"
-msgstr "Crea il tuo modello di preventivo"
+msgstr "Crea un modello di preventivo"
 
 #. module: sale_management
 #: model:ir.model.fields,field_description:sale_management.field_sale_order_option__create_uid
@@ -162,7 +154,7 @@ msgstr "Creato il"
 #. module: sale_management
 #: model:ir.model.fields,field_description:sale_management.field_res_config_settings__default_sale_order_template_id
 msgid "Default Template"
-msgstr "Template predefinito"
+msgstr "Modello predefinito"
 
 #. module: sale_management
 #: model:ir.model.fields,field_description:sale_management.field_sale_order_option__name
@@ -175,8 +167,12 @@ msgstr "Descrizione"
 
 #. module: sale_management
 #: model_terms:ir.ui.view,arch_db:sale_management.res_config_settings_view_form
-msgid "Design your quotation templates using building blocks<br/>"
-msgstr "Crea il tuo modello di preventivo usando blocchi <br/>"
+msgid ""
+"Design your quotation templates using building blocks<br/>\n"
+"                            <em attrs=\"{'invisible': [('module_sale_quotation_builder','=',False)]}\">Warning: this option will install the Website app.</em>"
+msgstr ""
+"Disegna i tuoi modelli di preventivo utilizzando i blocchetti web<br/>\n"
+"                            <em attrs=\"{'invisible': [('module_sale_quotation_builder','=',False)]}\">Avvertenza: questa opzione installerà l'applicazione Sito Web.</em>"
 
 #. module: sale_management
 #: model:ir.model,name:sale_management.model_digest_digest
@@ -355,7 +351,7 @@ msgstr "Quantità"
 #. module: sale_management
 #: model:ir.model.fields,field_description:sale_management.field_res_config_settings__module_sale_quotation_builder
 msgid "Quotation Builder"
-msgstr ""
+msgstr "Costruttore di preventivi"
 
 #. module: sale_management
 #: model:ir.model.fields,field_description:sale_management.field_sale_order_template__number_of_days
@@ -369,28 +365,28 @@ msgstr "Validità preventivo"
 #: model_terms:ir.ui.view,arch_db:sale_management.sale_order_template_view_form
 #: model_terms:ir.ui.view,arch_db:sale_management.sale_order_template_view_tree
 msgid "Quotation Template"
-msgstr "Template Preventivo"
+msgstr "Modello di preventivo"
 
 #. module: sale_management
 #: model:ir.model,name:sale_management.model_sale_order_template_line
 msgid "Quotation Template Line"
-msgstr ""
+msgstr "Riga del modello di preventivo"
 
 #. module: sale_management
 #: model_terms:ir.ui.view,arch_db:sale_management.sale_order_template_view_form
 msgid "Quotation Template Lines"
-msgstr "Righe template preventivo"
+msgstr "Righe del modello di preventivo"
 
 #. module: sale_management
 #: model:ir.model,name:sale_management.model_sale_order_template_option
 msgid "Quotation Template Option"
-msgstr ""
+msgstr "Opzione del modello di preventivo"
 
 #. module: sale_management
 #: model:ir.model.fields,field_description:sale_management.field_sale_order_template_line__sale_order_template_id
 #: model:ir.model.fields,field_description:sale_management.field_sale_order_template_option__sale_order_template_id
 msgid "Quotation Template Reference"
-msgstr "Riferimento template preventivo"
+msgstr "Riferimento del modello di preventivo"
 
 #. module: sale_management
 #: model:ir.actions.act_window,name:sale_management.sale_order_template_action
@@ -399,7 +395,7 @@ msgstr "Riferimento template preventivo"
 #: model_terms:ir.ui.view,arch_db:sale_management.res_config_settings_view_form
 #: model:res.groups,name:sale_management.group_sale_order_template
 msgid "Quotation Templates"
-msgstr "Template Preventivo"
+msgstr "Modelli di preventivo"
 
 #. module: sale_management
 #: model_terms:ir.ui.view,arch_db:sale_management.sale_order_template_view_form
@@ -462,12 +458,12 @@ msgstr ""
 #. module: sale_management
 #: model_terms:ir.ui.view,arch_db:sale_management.sale_order_form_quote
 msgid "Sales Quotation Template Lines"
-msgstr "Righe template di preventivo"
+msgstr "Righe del modello preventivo di vendita"
 
 #. module: sale_management
 #: model_terms:ir.ui.view,arch_db:sale_management.sale_order_template_view_search
 msgid "Search Quotation Template"
-msgstr ""
+msgstr "Ricerca modello di preventivo"
 
 #. module: sale_management
 #: model_terms:ir.ui.view,arch_db:sale_management.sale_order_template_view_form
