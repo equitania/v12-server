@@ -5277,7 +5277,7 @@ msgstr "Se selezionato, nuovi messaggi richiedono attenzione."
 #: model:ir.model.fields,help:account.field_account_invoice__message_has_error
 #: model:ir.model.fields,help:account.field_account_payment__message_has_error
 msgid "If checked, some messages have a delivery error."
-msgstr "Se selezionato, alcuni messaggi presentano un errore di consegna. "
+msgstr "Se selezionato, alcuni messaggi presentano un errore di consegna."
 
 #. module: account
 #: model:ir.model.fields,help:account.field_account_account_template__nocreate
@@ -5400,8 +5400,8 @@ msgstr ""
 "Usando i termini di pagamento la data di scadenza verrà calcolata "
 "automaticamente alla creazione delle registrazioni contabili. Lasciare vuoti"
 " i termini di pagamento e la data di scadenza corrisponde al pagamento "
-"diretto. I termini di pagamento possono includere varie date di scadenza, "
-"es. 50% adesso, 50% fra un mese."
+"diretto. I termini di pagamento possono includere varie scadenze, es. 50% "
+"adesso, 50% fra un mese."
 
 #. module: account
 #: model:ir.model.fields,help:account.field_account_invoice__date_due
@@ -5415,9 +5415,9 @@ msgstr ""
 "Usando i termini di pagamento la data di scadenza verrà calcolata "
 "automaticamente alla creazione delle registrazioni contabili. I termini di "
 "pagamento possono includere varie scadenze, es. 50% adesso, 50% fra un mese."
-" Per forzare una data controllare però che nella fattura non sia impostato "
-"il termine di pagamento stesso. Lasciare vuoti i termini di pagamento e la "
-"data di scadenza corrisponde al pagamento diretto."
+" Per forzare una data assicurarsi che nella fattura non sia impostato il "
+"termine di pagamento. Lasciare vuoti i termini di pagamento e la data di "
+"scadenza corrisponde al pagamento diretto."
 
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.res_config_settings_view_form
@@ -6628,12 +6628,12 @@ msgstr "Totale righe"
 #. module: account
 #: model:ir.model.fields,field_description:account.field_res_config_settings__show_line_subtotals_tax_selection
 msgid "Line Subtotals Tax Display"
-msgstr "Visualizzazione imposte nei subtotali righe"
+msgstr "Visualizzazione imposte negli importi riga"
 
 #. module: account
 #: model_terms:ir.ui.view,arch_db:account.res_config_settings_view_form
 msgid "Line subtotals tax display"
-msgstr "Visualizzazione delle imposte nei subtotali delle righe"
+msgstr "Visualizzazione delle imposte negli importi riga"
 
 #. module: account
 #: selection:account.setup.bank.manual.config,create_or_link_option:0
