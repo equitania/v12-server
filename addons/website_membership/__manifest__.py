@@ -5,7 +5,7 @@
     'name': 'Online Members Directory',
     'category': 'Website',
     'summary': 'Publish your members directory',
-    'version': '1.0',
+    'version': '1.0.190922',
     'description': """
 Publish your members/association directory publicly.
     """,

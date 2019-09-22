@@ -12,7 +12,7 @@
     'website': "https://www.odoo.com",
 
     'category': 'stock',
-    'version': '1.0',
+    'version': '1.0.190922',
 
     # any module necessary for this one to work correctly
     'depends': ['base', 'web', 'stock'],

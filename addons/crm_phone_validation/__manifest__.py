@@ -5,6 +5,7 @@
     'name': 'Crm Phone Numbers Validation',
     'summary': 'Validate and format phone numbers for leads and contacts',
     'sequence': '9999',
+    'version': '1.0.190922',
     'category': 'Hidden',
     'description': """
 CRM Phone Numbers Validation

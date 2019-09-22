@@ -3,7 +3,7 @@
 
 {
     'name': 'Employees',
-    'version': '1.1',
+    'version': '1.1.190922',
     'category': 'Human Resources',
     'sequence': 75,
     'summary': 'Centralize employee information',

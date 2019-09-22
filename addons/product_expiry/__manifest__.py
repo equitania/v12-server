@@ -2,6 +2,7 @@
 {
     'name' : 'Products Expiration Date',
     'category' : 'Warehouse',
+    'version': '1.0.190922',
     'depends' : ['stock'],
     'demo' : [],
     'description': """

@@ -4,6 +4,7 @@
     'name' : 'Authentication via LDAP',
     'depends' : ['base', 'base_setup'],
     #'description': < auto-loaded from README file
+    'version' : '1.0.190922',
     'category' : 'Extra Tools',
     'data' : [
         'views/ldap_installer_views.xml',

@@ -4,6 +4,7 @@
 {
     'name': 'CRM Livechat',
     'category': 'crm',
+    'version': '1.0.190922',
     'summary': 'Create lead from livechat conversation',
     'depends': [
         'crm',

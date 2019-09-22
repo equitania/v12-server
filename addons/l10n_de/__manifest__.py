@@ -6,6 +6,7 @@
     'author': 'openbig.org',
     'website': 'http://www.openbig.org',
     'category': 'Localization',
+    'version': '1.0.190922',
     'description': """
 Dieses  Modul beinhaltet einen deutschen Kontenrahmen basierend auf dem SKR03.
 ==============================================================================

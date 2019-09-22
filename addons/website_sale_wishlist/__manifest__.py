@@ -8,7 +8,7 @@ Allow shoppers of your eCommerce store to create personalized collections of pro
     """,
     'author': 'Odoo SA',
     'category': 'Website',
-    'version': '1.0',
+    'version': '1.0.190922',
     'depends': ['website_sale'],
     'data': [
         'security/website_sale_wishlist_security.xml',

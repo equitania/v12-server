@@ -4,6 +4,7 @@
     'name': 'City Addresses',
     'summary': 'Add a many2one field city on addresses',
     'sequence': '19',
+    'version': '1.0.190922',
     'category': 'Base',
     'complexity': 'easy',
     'description': """

@@ -5,6 +5,7 @@
 {
     'name': 'Contacts',
     'category': 'Tools',
+    'version': '1.0.190922',
     'summary': 'Centralize your address book',
     'description': """
 This module gives you a quick view of your contacts directory, accessible from your home page.

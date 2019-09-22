@@ -3,6 +3,7 @@
 {
     'name': 'Online Employee Details',
     'category': 'Website',
+    'version': '1.0.190922',
     'summary': 'Present your employee details online',
     'description': """
 Publish your employees public information on About Us website page.

@@ -10,6 +10,7 @@ This module allows authorized users to import a custom data module (.xml files a
 for customization purpose.
 """,
     'category': 'Extra Tools',
+    'version': '1.0.190922',
     'depends': ['web'],
     'installable': True,
     'auto_install': False,

@@ -3,7 +3,7 @@
 
 {
     'name': 'OdooBot',
-    'version': '1.0',
+    'version': '1.0.190922',
     'category': 'Discuss',
     'summary': 'Add OdooBot in discussions',
     'description': "",

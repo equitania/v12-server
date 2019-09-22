@@ -3,7 +3,7 @@
     'name': 'Website Live Chat',
     'category': 'Technical Settings',
     'summary': 'Chat with your website visitors',
-    'version': '1.0',
+    'version': '1.0.190922',
     'description': """
 Allow website visitors to chat with the collaborators. This module also brings a feedback tool for the livechat and web pages to display your channel with its ratings on the website.
     """,

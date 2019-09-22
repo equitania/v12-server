@@ -3,6 +3,7 @@
 
 {
     'name': 'eCommerce Link Tracker',
+    'version': '1.0.190922',
     'description': """
 View Link Tracker Statistics on eCommerce dashboard
 =====================================================

@@ -3,7 +3,7 @@
     'category': 'Website',
     'sequence': 54,
     'summary': 'Generate leads from a contact form',
-    'version': '2.0',
+    'version': '2.0.190922',
     'description': """
 Generate leads or opportunities in the CRM app from a contact form published on the Contact us page of your website. This form can be customized thanks to the *Form Builder* module (available in Odoo Enterprise).
     """,

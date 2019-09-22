@@ -5,6 +5,7 @@
     'summary': 'Create Tasks from Leads',
     'sequence': '19',
     'category': 'Project',
+    'version': '1.0.190922',
     'complexity': 'easy',
     'description': """
 Lead to Tasks

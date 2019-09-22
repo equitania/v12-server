@@ -5,7 +5,7 @@
     'name': 'Customer References',
     'category': 'Website',
     'summary': 'Publish your customer references',
-    'version': '1.0',
+    'version': '1.0.190922',
     'description': """
 Publish your customers as business references on your website to attract new potential prospects.
     """,

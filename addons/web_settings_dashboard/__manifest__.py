@@ -3,7 +3,7 @@
 
 {
     'name': 'Odoo Settings Dashboard',
-    'version': '1.0',
+    'version': '1.0.190922',
     'summary': 'Quick actions for installing new app, adding users, etc.',
     'category': 'Extra Tools',
     'description':
