@@ -3,7 +3,7 @@
 
 {
     'name': 'Products & Pricelists',
-    'version': '1.2.190922',
+    'version': '1.2.190923',
     'category': 'Sales',
     'depends': ['base', 'decimal_precision', 'mail', 'uom'],
     'description': """
