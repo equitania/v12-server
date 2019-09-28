@@ -3,7 +3,7 @@
 
 {
     'name': 'Point of Sale',
-    'version': '1.0.1.190922',
+    'version': '1.0.1.190928',
     'category': 'Point Of Sale',
     'sequence': 20,
     'summary': 'Tablet POS: shops and restaurants',

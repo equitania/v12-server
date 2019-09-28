@@ -3,7 +3,7 @@
 
 {
     'name': 'Website Survey',
-    'version': '1.0',
+    'version': '1.0.190928',
     'category': 'Marketing',
     'description': """
 Create beautiful surveys and display them on your website

@@ -23,7 +23,7 @@ Re-implement Odoo's file import system:
 """,
     'depends': ['web'],
     'category': 'Extra Tools',
-    'version': '1.0.190922',
+    'version': '1.0.190928',
     'installable': True,
     'auto_install': True,
     'data': [
