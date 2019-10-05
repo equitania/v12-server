@@ -4,7 +4,7 @@
 {
     'name': 'Mass mailing on sale orders',
     'category': 'Hidden',
-    'version': '1.0',
+    'version': '1.0.191005',
     'summary': 'Add sale order UTM info on mass mailing',
     'description': """UTM and mass mailing on sale orders""",
     'depends': ['sale', 'mass_mailing', 'website_sale_link_tracker'],

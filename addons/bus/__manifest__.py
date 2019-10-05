@@ -1,6 +1,6 @@
 {
     'name' : 'IM Bus',
-    'version': '1.0.190922',
+    'version': '1.0.191005',
     'category': 'Hidden',
     'complexity': 'easy',
     'description': "Instant Messaging Bus allow you to send messages to users, in live.",

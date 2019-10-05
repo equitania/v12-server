@@ -3,7 +3,7 @@
 
 {
     'name': 'Leaves',
-    'version': '1.5.190928',
+    'version': '1.5.191005',
     'category': 'Human Resources',
     'summary': 'Allocate leaves and follow leave requests',
     'website': 'https://www.odoo.com/page/leaves',

@@ -3,7 +3,7 @@
 
 {
     'name' : 'Sale & Purchase Vouchers',
-    'version' : '1.0.190922',
+    'version' : '1.0.191005',
     'summary': 'Manage your debts and credits thanks to simple sale/purchase receipts',
     'description': """
 TODO

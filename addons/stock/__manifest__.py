@@ -3,7 +3,7 @@
 
 {
     'name': 'Inventory',
-    'version': '1.1.190928',
+    'version': '1.1.191005',
     'summary': 'Manage your stock and logistics activities',
     'description': "",
     'website': 'https://www.odoo.com/page/warehouse',

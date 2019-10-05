@@ -4,7 +4,7 @@
 {
     'name': 'Web',
     'category': 'Hidden',
-    'version': '1.0.190928',
+    'version': '1.0.191005',
     'description':
         """
 Odoo Web core module.

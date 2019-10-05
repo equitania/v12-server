@@ -4,6 +4,7 @@
     'name': 'Events',
     'category': 'Website',
     'sequence': 166,
+    'version': '1.0.191005',
     'summary': 'Publish events, sell tickets',
     'website': 'https://www.odoo.com/page/events',
     'description': "",

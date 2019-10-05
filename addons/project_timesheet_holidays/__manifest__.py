@@ -3,7 +3,7 @@
 
 {
     'name': 'Timesheet when on Leaves',
-    'version': '1.0',
+    'version': '1.0.191005',
     'category': 'Human Resources',
     'summary': 'Schedule timesheet when on leaves',
     'description': """

@@ -12,7 +12,7 @@ Finally, the module comes with an option to display an attribute summary table i
     """,
     'author': 'Odoo SA',
     'category': 'Website',
-    'version': '1.0',
+    'version': '1.0.191005',
     'depends': ['website_sale'],
     'data': [
         'security/ir.model.access.csv',
