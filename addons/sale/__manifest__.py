@@ -3,7 +3,7 @@
 
 {
     'name': 'Sales',
-    'version': '1.1.191005',
+    'version': '1.1.191008',
     'category': 'Sales',
     'summary': 'Sales internal machinery',
     'description': """

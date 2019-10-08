@@ -3,7 +3,7 @@
 {
     'name': "Online Event Ticketing",
     'category': 'Website',
-    'version': '1.0.190922',
+    'version': '1.0.191008',
     'summary': "Sell event tickets online",
     'description': """
 Sell event tickets through eCommerce app.

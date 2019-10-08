@@ -1,6 +1,6 @@
 {
     'name': 'Barcode',
-    'version': '2.0.191005',
+    'version': '2.0.191008',
     'category': 'Extra Tools',
     'summary': 'Barcodes Scanning and Parsing',
     'depends': ['web'],
