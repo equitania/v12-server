@@ -5,7 +5,7 @@
     'name': 'Online Jobs',
     'category': 'Website',
     'sequence': 142,
-    'version': '1.0',
+    'version': '1.0.191014',
     'summary': 'Manage your online hiring process',
     'description': "This module allows to publish your available job positions on your website and keep track of application submissions easily. It comes as an add-on of *Recruitment* app.",
     'depends': ['website_partner', 'hr_recruitment', 'website_mail', 'website_form'],

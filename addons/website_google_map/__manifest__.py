@@ -4,7 +4,7 @@
     'name': 'Google Maps',
     'category': 'Website',
     'summary': 'Show your company address on Google Maps',
-    'version': '1.0.190922',
+    'version': '1.0.191014',
     'description': """
 Show your company address/partner address on Google Maps. Configure an API key in the Website settings.
     """,
