@@ -22,8 +22,8 @@
 # Paolo Valier, 2019
 # Mario Riva <mario.riva@gmail.com>, 2019
 # SebastianoPistore <SebastianoPistore.info@protonmail.ch>, 2019
-# Sergio Zanchetta <primes2h@gmail.com>, 2019
 # Luigia Cimmino Caserta <lcc@odoo.com>, 2019
+# Sergio Zanchetta <primes2h@gmail.com>, 2019
 # 
 msgid ""
 msgstr ""
@@ -31,7 +31,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-08-08 13:35+0000\n"
 "PO-Revision-Date: 2018-08-24 09:24+0000\n"
-"Last-Translator: Luigia Cimmino Caserta <lcc@odoo.com>, 2019\n"
+"Last-Translator: Sergio Zanchetta <primes2h@gmail.com>, 2019\n"
 "Language-Team: Italian (https://www.transifex.com/odoo/teams/41243/it/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -469,7 +469,7 @@ msgstr "Deve essere specificato un registro per il sistema %s."
 #: code:addons/sale/models/sale.py:804
 #, python-format
 msgid "A payment acquirer is required to create a transaction."
-msgstr "Per creare una transazione è necessario un sistema di pagamento."
+msgstr "Per creare una transazione è richiesto un sistema di pagamento."
 
 #. module: sale
 #: selection:res.config.settings,sale_pricelist_setting:0
@@ -1103,7 +1103,7 @@ msgstr "Indirizzi del cliente"
 #: model:ir.model.fields,field_description:sale.field_sale_report__country_id
 #: model_terms:ir.ui.view,arch_db:sale.view_order_product_search
 msgid "Customer Country"
-msgstr "Paese del cliente"
+msgstr "Nazione cliente"
 
 #. module: sale
 #: model:ir.model.fields,field_description:sale.field_sale_report__commercial_partner_id
@@ -2588,7 +2588,7 @@ msgstr "Pianificato"
 #: code:addons/sale/models/sale.py:450
 #, python-format
 msgid "Please define an accounting sales journal for this company."
-msgstr "Definire un registro vendite per questa azienda."
+msgstr "Definire un registro vendite per l'azienda."
 
 #. module: sale
 #: code:addons/sale/models/sale.py:1318
@@ -3012,7 +3012,7 @@ msgstr "La data richiesta è troppo presto."
 #. module: sale
 #: model:ir.model.fields,field_description:sale.field_sale_order__activity_user_id
 msgid "Responsible User"
-msgstr "Utente Responsabile"
+msgstr "Utente responsabile"
 
 #. module: sale
 #: model:ir.model,name:sale.model_sale_order

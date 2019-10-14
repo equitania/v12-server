@@ -27,7 +27,7 @@ install/win32/meta.py
 /build/
 /dist/
 /include/
-/lib/
+#/lib/
 /man/
 /share/
 /src/

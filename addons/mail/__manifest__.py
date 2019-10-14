@@ -2,7 +2,7 @@
 
 {
     'name': 'Discuss',
-    'version': '1.0.191008',
+    'version': '1.0.191014',
     'category': 'Discuss',
     'summary': 'Chat, mail gateway and private channels',
     'description': "",

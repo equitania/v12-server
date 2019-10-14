@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Events Organization',
-    'version': '1.0.191008',
+    'version': '1.0.191014',
     'website': 'https://www.odoo.com/page/events',
     'category': 'Marketing',
     'summary': 'Trainings, Conferences, Meetings, Exhibitions, Registrations',
