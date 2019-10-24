@@ -3,7 +3,7 @@
 {
     'name': 'Website Mail Channels',
     'category': 'Website',
-    'version': '1.0.190922',
+    'version': '1.0.191024',
     'summary': 'Allow visitors to join public mail channels',
     'description': """
 Visitors can join public mail channels managed in the Discuss app in order to get regular updates or reach out with your community.

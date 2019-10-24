@@ -7,7 +7,7 @@
     'sequence': 140,
     'website': 'https://www.odoo.com/page/blog-engine',
     'summary': 'Publish blog posts, announces, news',
-    'version': '1.0.191014',
+    'version': '1.0.191024',
     'description': "",
     'depends': ['website_mail', 'website_partner'],
     'data': [
