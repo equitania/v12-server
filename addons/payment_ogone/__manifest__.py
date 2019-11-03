@@ -4,7 +4,7 @@
     'name': 'Ogone Payment Acquirer',
     'category': 'Accounting',
     'summary': 'Payment Acquirer: Ogone Implementation',
-    'version': '1.0.191005',
+    'version': '1.0.191103',
     'description': """Ogone Payment Acquirer""",
     'depends': ['payment'],
     'data': [

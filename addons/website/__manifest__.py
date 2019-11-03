@@ -7,7 +7,7 @@
     'sequence': 7,
     'summary': 'Enterprise website builder',
     'website': 'https://www.odoo.com/page/website-builder',
-    'version': '1.0.191024',
+    'version': '1.0.191103',
     'description': "",
     'depends': [
         'web',
