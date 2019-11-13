@@ -4,7 +4,7 @@
 
 {
     'name': 'Members',
-    'version': '1.0.191008',
+    'version': '1.0.191113',
     'category': 'Sales',
     'description': """
 This module allows you to manage all operations for managing memberships.
