@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 {
     'name': 'Digital Products',
-    'version': '0.1.190922',
+    'version': '0.1.191117',
     'summary': 'Sell digital products in your eCommerce store',
     'category': 'Website',
     'description': """
