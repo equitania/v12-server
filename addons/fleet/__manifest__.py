@@ -2,7 +2,7 @@
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 {
     'name' : 'Fleet',
-    'version' : '0.1.190922',
+    'version' : '0.1.191117',
     'sequence': 165,
     'category': 'Human Resources',
     'website' : 'https://www.odoo.com/page/fleet',

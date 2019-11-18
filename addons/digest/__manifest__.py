@@ -7,7 +7,7 @@
 Send KPI Digests periodically
 =============================
 """,
-    'version': '1.0.190922',
+    'version': '1.0.191117',
     'depends': [
         'mail',
         'portal'

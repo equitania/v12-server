@@ -5,7 +5,7 @@
     'name': 'Lead Generation',
     'summary': 'Create Leads/Opportunities from your website\'s traffic',
     'category': 'CRM',
-    'version' : '1.0.190922',
+    'version' : '1.0.191117',
     'depends': ['iap', 'crm', 'website_form'],
     'data': [
         'data/crm.reveal.industry.csv',

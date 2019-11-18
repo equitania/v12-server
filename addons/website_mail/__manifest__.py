@@ -5,7 +5,7 @@
     'name': 'Website Mail',
     'category': 'Hidden',
     'summary': 'Website Module for Mail',
-    'version': '0.1',
+    'version': '0.1.191117',
     'description': """
 Module holding mail improvements for website.
 It is responsible of comments moderation for published documents (forum, slides, blog, ...)

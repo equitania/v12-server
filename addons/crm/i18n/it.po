@@ -14,7 +14,7 @@
 # Paolo Valier, 2018
 # David Minneci <david@numeko.it>, 2018
 # Léonie Bouchat <lbo@odoo.com>, 2019
-# Lorenzo Battistini <lorenzo.battistini@agilebg.com>, 2019
+# Lorenzo Battistini <lb@takobi.online>, 2019
 # Sergio Zanchetta <primes2h@gmail.com>, 2019
 # 
 msgid ""
@@ -162,8 +162,8 @@ msgid ""
 "</p>"
 msgstr ""
 "<p class='o_view_nocontent_smiling_face'>Aggiungi nuove opportunità</p><p>\n"
-"    Sembra che tu non faccia parte di alcun team di vendita. Dovresti\n"
-"    aggiungerti a uno dei team.\n"
+"    Non sembri appartenere ad alcun team di vendita. Entra a far parte di\n"
+"    uno dei team.\n"
 "</p>"
 
 #. module: crm
@@ -879,7 +879,7 @@ msgstr "Alias e-mail"
 #. module: crm
 #: model:ir.model.fields,help:crm.field_crm_lead__email_from
 msgid "Email address of the contact"
-msgstr "Indirizzo email del contatto"
+msgstr "Indirizzo e-mail del contatto"
 
 #. module: crm
 #: model_terms:digest.tip,tip_description:crm.digest_tip_crm_0
@@ -887,7 +887,7 @@ msgid ""
 "Email sent to <strong>${email}</strong> generate opportunities in your "
 "pipeline.<br>"
 msgstr ""
-"Le email inviate a <strong>${email}</strong> generano opportunità nel "
+"Le e-mail inviate a <strong>${email}</strong> generano opportunità nel "
 "flusso.<br>"
 
 #. module: crm
@@ -1711,7 +1711,7 @@ msgstr "Numero di messaggi che richiedono un'azione"
 #. module: crm
 #: model:ir.model.fields,help:crm.field_crm_lead__message_has_error_counter
 msgid "Number of messages with delivery error"
-msgstr "Numero di messaggi con errori di consegna"
+msgstr "Numero di messaggi con errore di consegna"
 
 #. module: crm
 #: model:ir.model.fields,field_description:crm.field_crm_team__opportunities_count

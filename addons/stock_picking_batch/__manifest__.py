@@ -3,7 +3,7 @@
 
 {
     'name': 'Warehouse Management: Batch Picking',
-    'version': '1.0',
+    'version': '1.0.191117',
     'category': 'Warehouse',
     'description': """
 This module adds the batch picking option in warehouse management

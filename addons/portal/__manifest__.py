@@ -6,7 +6,7 @@
     'summary': 'Customer Portal',
     'sequence': '9000',
     'category': 'Hidden',
-    'version': '1.0.191014',
+    'version': '1.0.191117',
     'description': """
 This module adds required base code for a fully integrated customer portal.
 It contains the base controller class and base templates. Business addons

@@ -4,7 +4,7 @@
 {
     'name': 'Mass mailing on attendees',
     'category': 'Hidden',
-    'version': '1.0',
+    'version': '1.0.191117',
     'description':
         """
 Mass mail event attendees

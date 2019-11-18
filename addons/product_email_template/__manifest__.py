@@ -4,7 +4,7 @@
     'name': 'Product Email Template',
     'depends': ['account'],
     'category': 'Accounting',
-    'version': '1.0.190922',
+    'version': '1.0.191117',
     'description': """
 Add email templates to products to be sent on invoice confirmation
 ==================================================================

@@ -4,7 +4,7 @@
     'name': 'Unsplash Image Library',
     'category': 'Web',
     'summary': 'Find free high-resolution images from Unsplash',
-    'version': '1.1.191005',
+    'version': '1.1.191117',
     'description': """Explore the free high-resolution image library of Unsplash.com and find images to use in Odoo. An Unsplash search bar is added to the image library modal.""",
     'depends': ['base_setup', 'web_editor'],
     'data': [

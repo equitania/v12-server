@@ -3,6 +3,7 @@
 {
     'name': 'Payroll Accounting',
     'category': 'Human Resources',
+    'version': '1.0.191117',
     'description': """
 Generic Payroll system Integrated with Accounting.
 ==================================================

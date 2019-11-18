@@ -3,7 +3,7 @@
 
 {
     'name': 'OAuth2 Authentication',
-    'version' : '1.0.191024',
+    'version' : '1.0.191117',
     'category': 'Tools',
     'description': """
 Allow users to login through OAuth2 Provider.

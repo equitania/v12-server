@@ -3,7 +3,7 @@
 
 {
     'name': 'Google Calendar',
-    'version': '1.0.191103',
+    'version': '1.0.191117',
     'category': 'Extra Tools',
     'description': "",
     'depends': ['google_account', 'calendar'],

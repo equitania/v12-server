@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Slides',
-    'version': '1.0.191005',
+    'version': '1.0.191117',
     'sequence': 145,
     'summary': 'Publish videos, slides and documents',
     'website': 'https://www.odoo.com/page/slides',

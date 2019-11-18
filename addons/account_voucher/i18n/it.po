@@ -73,7 +73,7 @@ msgstr ""
 #. module: account_voucher
 #: model:ir.model.fields,field_description:account_voucher.field_account_voucher__message_needaction
 msgid "Action Needed"
-msgstr "Azione Necessaria"
+msgstr "Azione richiesta"
 
 #. module: account_voucher
 #: model:ir.model.fields,field_description:account_voucher.field_account_voucher_line__price_subtotal
@@ -99,14 +99,14 @@ msgstr "Sei sicuro di annullare questa ricevuta?"
 #. module: account_voucher
 #: model:ir.model.fields,field_description:account_voucher.field_account_voucher__message_attachment_count
 msgid "Attachment Count"
-msgstr "Numero di allegati"
+msgstr "Numero allegati"
 
 #. module: account_voucher
 #: model:ir.model.fields,field_description:account_voucher.field_account_voucher__date
 #: model_terms:ir.ui.view,arch_db:account_voucher.view_purchase_receipt_form
 #: model_terms:ir.ui.view,arch_db:account_voucher.view_voucher_filter_vendor
 msgid "Bill Date"
-msgstr "Data di fatturazione"
+msgstr "Data fattura"
 
 #. module: account_voucher
 #: model_terms:ir.ui.view,arch_db:account_voucher.view_purchase_receipt_form
@@ -149,7 +149,7 @@ msgstr "Azienda"
 #: model:ir.model.fields,help:account_voucher.field_account_voucher__company_id
 #: model:ir.model.fields,help:account_voucher.field_account_voucher_line__company_id
 msgid "Company related to this journal"
-msgstr "Società collegata a questo giornale"
+msgstr "Azienda collegata a questo registro"
 
 #. module: account_voucher
 #: model_terms:ir.actions.act_window,help:account_voucher.action_sale_receipt
@@ -381,7 +381,7 @@ msgstr "Numero di messaggi che richiedono un'azione"
 #. module: account_voucher
 #: model:ir.model.fields,help:account_voucher.field_account_voucher__message_has_error_counter
 msgid "Number of messages with delivery error"
-msgstr "Numero di messaggio con errori di invio"
+msgstr "Numero di messaggi con errore di consegna"
 
 #. module: account_voucher
 #: model:ir.model.fields,help:account_voucher.field_account_voucher__message_unread_counter
@@ -391,7 +391,7 @@ msgstr "Numero di messaggi non letti"
 #. module: account_voucher
 #: model:ir.model.fields,help:account_voucher.field_account_voucher_line__tax_ids
 msgid "Only for tax excluded from price"
-msgstr "Solo per imposte escluse dal prezzo"
+msgstr "Solo per imposta esclusa dal prezzo"
 
 #. module: account_voucher
 #: model:ir.model.fields,field_description:account_voucher.field_account_voucher__paid
@@ -678,7 +678,7 @@ msgstr "Messaggi sito web"
 #. module: account_voucher
 #: model:ir.model.fields,help:account_voucher.field_account_voucher__website_message_ids
 msgid "Website communication history"
-msgstr "Storico comunicazione sito"
+msgstr "Cronologia comunicazioni sito web"
 
 #. module: account_voucher
 #: model_terms:ir.actions.act_window,help:account_voucher.action_purchase_receipt

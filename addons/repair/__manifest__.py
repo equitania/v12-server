@@ -4,7 +4,7 @@
 
 {
     'name': 'Repairs',
-    'version': '1.0.190922',
+    'version': '1.0.191117',
     'sequence': 200,
     'category': 'Manufacturing',
     'summary': 'Repair damaged products',

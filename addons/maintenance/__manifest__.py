@@ -2,7 +2,7 @@
 
 {
     'name': 'Maintenance',
-    'version': '1.0.191024',
+    'version': '1.0.191117',
     'sequence': 125,
     'category': 'Human Resources',
     'description': """

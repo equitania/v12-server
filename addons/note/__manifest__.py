@@ -3,7 +3,7 @@
 
 {
     'name': 'Notes',
-    'version': '1.0.191005',
+    'version': '1.0.191117',
     'category': 'Tools',
     'description': "",
     'website': 'https://www.odoo.com/page/notes',
