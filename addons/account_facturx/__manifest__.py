@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name' : 'Import Vendor Bills From XML',
-    'version' : '1.0',
+    'version' : '1.0.191123',
     'category': 'Accounting',
     'depends' : ['account'],
     'data': [

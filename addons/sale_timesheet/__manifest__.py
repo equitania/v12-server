@@ -3,7 +3,7 @@
 
 {
     'name': 'Sales Timesheet',
-    'version': '1.0.191117',
+    'version': '1.0.191123',
     'category': 'Hidden',
     'summary': 'Sell based on timesheets',
     'description': """
