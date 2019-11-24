@@ -4,7 +4,7 @@
     'sequence': 55,
     'summary': 'Sell your products online',
     'website': 'https://www.odoo.com/page/e-commerce',
-    'version': '1.0.191117',
+    'version': '1.0.191124',
     'description': "",
     'depends': ['website', 'sale', 'website_payment', 'website_mail', 'website_form', 'website_rating', 'digest'],
     'data': [
