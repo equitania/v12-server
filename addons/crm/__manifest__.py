@@ -3,7 +3,7 @@
 
 {
     'name': 'CRM',
-    'version': '1.0.191117',
+    'version': '1.0.191203',
     'category': 'Sales',
     'sequence': 5,
     'summary': 'Track leads and close opportunities',
