@@ -2,7 +2,7 @@
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 {
     'name': 'Initial Setup Tools',
-    'version': '1.0.191117',
+    'version': '1.0.191215',
     'category': 'Hidden',
     'description': """
 This module helps to configure the system at the installation of a new database.

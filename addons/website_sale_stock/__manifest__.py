@@ -4,7 +4,7 @@
 {
     'name': 'Product Availability',
     'category': 'Website',
-    'version': '1.0.190922',
+    'version': '1.0.191215',
     'summary': 'Manage product inventory & availability',
     'description': """
 Manage the inventory of your products and display their availability status in your eCommerce store.

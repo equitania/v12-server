@@ -5,7 +5,7 @@
     'name': 'Resellers',
     'category': 'Website',
     'summary': 'Publish your resellers/partners and forward leads to them',
-    'version': '1.0.191117',
+    'version': '1.0.191215',
     'description': """
 This module allows to publish your resellers/partners on your website and to forward incoming leads/opportunities to them.
 

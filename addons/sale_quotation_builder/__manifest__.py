@@ -6,7 +6,7 @@
     'category': 'Sales',
     'summary': 'Build great quotation templates',
     'website': 'https://www.odoo.com/page/quote-builder',
-    'version': '1.0.191117',
+    'version': '1.0.191215',
     'description': "Design great quotation templates with building blocks to significantly boost your success rate.",
     'depends': ['website', 'sale_management', 'website_mail'],
     'data': [

@@ -4,7 +4,7 @@
 {
     'name': 'Payroll',
     'category': 'Human Resources',
-    'version': '1.0.191117',
+    'version': '1.0.191215',
     'sequence': 38,
     'summary': 'Manage your employee payroll records',
     'description': "",

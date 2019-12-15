@@ -4,7 +4,7 @@
 
 {
     'name': 'Task Logs',
-    'version': '1.0.191117',
+    'version': '1.0.191215',
     'category': 'Human Resources',
     'sequence': 23,
     'summary': 'Track employee time on tasks',

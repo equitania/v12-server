@@ -2,7 +2,7 @@
 
 {
     'name': 'Events Sales',
-    'version': '1.1.191117',
+    'version': '1.1.191215',
     'category': 'Marketing',
     'website': 'https://www.odoo.com/page/events',
     'description': """

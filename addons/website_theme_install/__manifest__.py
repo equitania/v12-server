@@ -3,7 +3,7 @@
     'summary': 'Select a theme for your website',
     'description': "",
     'category': 'Technical Settings',
-    'version': '1.0.191117',
+    'version': '1.0.191215',
     'data': [
         'views/assets.xml',
         'views/views.xml',

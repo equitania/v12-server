@@ -3,7 +3,7 @@
 
 {
     'name': 'Purchase',
-    'version': '1.2.191124',
+    'version': '1.2.191215',
     'category': 'Purchases',
     'sequence': 60,
     'summary': 'Purchase orders, tenders and agreements',

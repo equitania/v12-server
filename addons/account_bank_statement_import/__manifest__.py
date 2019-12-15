@@ -2,7 +2,7 @@
 {
     'name': 'Account Bank Statement Import',
     'category': 'Accounting',
-    'version': '1.0.191117',
+    'version': '1.0.191215',
     'depends': ['account'],
     'description': """Generic Wizard to Import Bank Statements.
 

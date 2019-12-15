@@ -2,7 +2,7 @@
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 {
     'name': 'Surveys',
-    'version': '3.0.191117',
+    'version': '3.0.191215',
     'category': 'Marketing',
     'description': """
 Create beautiful surveys and visualize answers

@@ -3,7 +3,7 @@
 
 {
     'name': 'Recruitment',
-    'version': '1.0.191203',
+    'version': '1.0.191215',
     'category': 'Human Resources',
     'sequence': 90,
     'summary': 'Track your recruitment pipeline',

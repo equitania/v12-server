@@ -5,7 +5,7 @@
     'summary': 'Add extra fields on addresses',
     'sequence': '19',
     'category': 'Base',
-    'version': '1.0.190922',
+    'version': '1.0.191215',
     'complexity': 'easy',
     'description': """
 Extended Addresses Management

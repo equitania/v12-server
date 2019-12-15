@@ -3,7 +3,7 @@
 
 {
     'name': 'Sales',
-    'version': '1.0.191117',
+    'version': '1.0.191215',
     'category': 'Sales',
     'sequence': 17,
     'summary': 'From quotations to invoices',

@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name' : 'Live Chat',
-    'version': '1.0.191117',
+    'version': '1.0.191215',
     'sequence': 170,
     'summary': 'Chat with your website visitors',
     'category': 'Website',

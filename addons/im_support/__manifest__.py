@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Livechat Support',
-    'version': '1.0.191117',
+    'version': '1.0.191215',
     'category': 'Hidden',
     'description': """
         This module allows employee users to communicate with livechat operators

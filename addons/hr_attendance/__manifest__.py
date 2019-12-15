@@ -4,7 +4,7 @@
 
 {
     'name': 'Attendances',
-    'version': '2.0.191203',
+    'version': '2.0.191215',
     'category': 'Human Resources',
     'sequence': 81,
     'summary': 'Track employee attendance',
