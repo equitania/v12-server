@@ -3,7 +3,7 @@
 
 {
     'name': 'Project',
-    'version': '1.1.191215',
+    'version': '1.1.191229',
     'website': 'https://www.odoo.com/page/project-management',
     'category': 'Project',
     'sequence': 10,
