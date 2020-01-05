@@ -4,7 +4,7 @@
 {
     'name': 'Mass mailing on track speakers',
     'category': 'Hidden',
-    'version': '1.0',
+    'version': '1.0.200105',
     'description':
         """
 Mass mail event track speakers

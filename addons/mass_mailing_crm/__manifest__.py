@@ -4,7 +4,7 @@
 {
     'name': 'Mass mailing on lead / opportunities',
     'category': 'Hidden',
-    'version': '1.0.191005',
+    'version': '1.0.200105',
     'summary': 'Add lead / opportunities UTM info on mass mailing',
     'description': """UTM and mass mailing on lead / opportunities""",
     'depends': ['crm', 'mass_mailing'],

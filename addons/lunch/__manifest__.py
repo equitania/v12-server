@@ -3,7 +3,7 @@
 {
     'name': 'Lunch',
     'sequence': 120,
-    'version': '1.0.191215',
+    'version': '1.0.200105',
     'depends': ['decimal_precision', 'mail'],
     'category': 'Human Resources',
     'summary': 'Handle lunch orders of your employees',
