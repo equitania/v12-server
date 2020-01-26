@@ -3,7 +3,7 @@
 
 {
     'name': 'Automated Action Rules',
-    'version': '1.0.191215',
+    'version': '1.0.200126',
     'category': 'Sales',
     'description': """
 This module allows to implement action rules for any object.

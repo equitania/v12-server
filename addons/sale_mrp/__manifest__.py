@@ -4,7 +4,7 @@
 
 {
     'name': 'Sales and MRP Management',
-    'version': '1.0.191215',
+    'version': '1.0.200126',
     'category': 'Hidden',
     'description': """
 This module provides facility to the user to install mrp and sales modulesat a time.

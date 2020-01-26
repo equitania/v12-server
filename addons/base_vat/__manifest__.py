@@ -3,7 +3,7 @@
 
 {
     'name': 'VAT Number Validation',
-    'version': '1.0.200105',
+    'version': '1.0.200126',
     'category': 'Accounting',
     'description': """
 VAT validation for Partner's VAT numbers.

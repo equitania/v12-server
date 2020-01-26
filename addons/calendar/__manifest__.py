@@ -3,7 +3,7 @@
 
 {
     'name': 'Calendar',
-    'version': '1.0.191229',
+    'version': '1.0.200126',
     'sequence': 130,
     'depends': ['base', 'mail'],
     'summary': 'Schedule employees meetings',

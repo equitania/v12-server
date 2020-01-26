@@ -3,7 +3,7 @@
 
 {
     'name' : 'Analytic Accounting',
-    'version': '1.1.191117',
+    'version': '1.1.200126',
     'category': 'Hidden/Dependency',
     'depends' : ['base', 'decimal_precision', 'mail', 'uom'],
     'description': """
