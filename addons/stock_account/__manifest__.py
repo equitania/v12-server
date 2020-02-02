@@ -3,7 +3,7 @@
 
 {
     'name': 'WMS Accounting',
-    'version': '1.1.200126',
+    'version': '1.1.200202',
     'summary': 'Inventory, Logistic, Valuation, Accounting',
     'description': """
 WMS Accounting module
