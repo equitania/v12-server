@@ -1,7 +1,7 @@
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 {
     'name': 'Purchase Agreements',
-    'version': '0.1.200202',
+    'version': '0.1.200209',
     'category': 'Purchases',
     'description': """
 This module allows you to manage your Purchase Agreements.
