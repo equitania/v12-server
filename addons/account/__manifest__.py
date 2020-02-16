@@ -2,7 +2,7 @@
 # Part of Odoo. See LICENSE file for full copyright and licensing details.
 {
     'name' : 'Invoicing',
-    'version' : '1.1.200209',
+    'version' : '1.1.200216',
     'summary': 'Invoices & Payments',
     'sequence': 15,
     'description': """
