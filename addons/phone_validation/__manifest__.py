@@ -6,7 +6,7 @@
     'summary': 'Validate and format phone numbers',
     'sequence': '9999',
     'category': 'Hidden',
-    'version': '1.0.191203',
+    'version': '1.0.200223',
     'description': """
 Phone Numbers Validation
 ========================
