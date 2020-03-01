@@ -4,7 +4,7 @@
 {
     'name': 'Tours',
     'category': 'Hidden',
-    'version': '1.0.190922',
+    'version': '1.0.200301',
     'description': """
 Odoo Web tours.
 ========================

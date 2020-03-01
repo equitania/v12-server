@@ -2,7 +2,7 @@
     'name': 'eCommerce Delivery',
     'category': 'Website',
     'summary': 'Add delivery costs to online sales',
-    'version': '1.0.190922',
+    'version': '1.0.200301',
     'description': """
 Add a selection of delivery methods to your eCommerce store.
 Configure your own methods with a pricing grid or integrate with carriers for a fully automated shipping process.

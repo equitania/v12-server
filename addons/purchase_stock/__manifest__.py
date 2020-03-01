@@ -3,7 +3,7 @@
 
 {
     'name': 'Purchase Stock',
-    'version': '1.2.191215',
+    'version': '1.2.200301',
     'category': 'Purchases',
     'sequence': 60,
     'summary': 'Purchase Orders, Receipts, Vendor Bills for Stock',

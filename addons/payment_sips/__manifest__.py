@@ -5,7 +5,7 @@
 
 {
     'name': 'Worldline SIPS',
-    'version': '1.0.191103',
+    'version': '1.0.200301',
     'author': 'Eezee-It',
     'category': 'Accounting',
     'description': """

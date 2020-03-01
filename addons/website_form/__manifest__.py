@@ -3,7 +3,7 @@
     'category': 'Hidden',
     'summary': 'Generic controller for web forms',
     'description': 'Generic controller for web forms',
-    'version': '1.0.200209',
+    'version': '1.0.200301',
     'depends': ['website', 'mail'],
     'data': [
         'views/assets.xml',
